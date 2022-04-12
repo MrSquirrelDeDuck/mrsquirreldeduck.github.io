@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Item Finder
+        </title>
+        <link rel="icon" href="images/favicon.ico">
+        <style>
+            * {text-align: center; font-family:'verdana';}
+            
+                #background_image {
+        position: relative;
+    }
+    #background_image {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+            
+            p,h1,h9 {    
+                color: white;
+                text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            }
+            body {
+                background-image: url('images/terraria_forest.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% auto;
+            }
+        </style>
+        <script src="item_finder.js"></script>
+    </head>
+    <body onload="loadScript()"> 
+            <select name="background_image" id="background_image" onchange="changeBackground()">
+            <option value="forest">Forest</option>
+            <option value="desert">Desert</option>
+            <option value="jungle">Jungle</option>
+            <option value="corruption">Corruption</option>
+            <option value="underworld">Underworld</option>
+        </select><br>
+    <img src="images/terraria_chest.png" width="96" height="84">
+    <h1>Terraria Item Finder</h1>
+    <h9>Non google sheet version</h9><br><br><br><br>
+    <p>Put your item name here and click "Find"</p>
+    <input type="text" id="item_input" name="item_input" autofocus><br><br>
+    <input type="button" value="Find!" onclick="findItem()" autofocus>
+    <b><p><span id="chestid">The chest id will be here!</span></p></b>
+</html>
