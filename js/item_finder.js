@@ -1,36 +1,3 @@
-function loadFiles(file) {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-    var fs = require("fs");
-    var text = fs.readFileSync("resources/item_finder/items.txt").toString('utf-8');
-    var textByLine = text.split("\n");
-}
-
-function downloadFile() {
-	let response = fetch("resources/item_finder/items.txt");
-		
-	if(response.status != 200) {
-		throw new Error("oops");
-	}
-		
-	// read response stream as text
-	let text_data = response.text();
-
-	return text_data;
-}
-
 function loadFile(filePath) {
   var result = null;
   var xmlhttp = new XMLHttpRequest();
@@ -51,9 +18,6 @@ function findItem() {
 	    try {
 	    	let text_data = loadFile("resources/item_finder/items.txt");
 	    	document.getElementById("chestid").innerHTML = text_data;
-            /*  var txtFile = new XMLHttpRequest();  
-            txtFile.open("GET", "./resources/item_finder/items.txt", true);
-            document.getElementById("chestid").innerHTML = txtFile; */
             console.log(txtFile);
             console.log(txtFile.responseText);
 	    }
