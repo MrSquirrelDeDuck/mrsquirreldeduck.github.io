@@ -18,8 +18,8 @@ function findItem() {
 	    try {
 	    	let text_data = loadFile("resources/item_finder/items.txt");
 	    	document.getElementById("chestid").innerHTML = text_data;
-            console.log(txtFile);
-            console.log(txtFile.responseText);
+            	console.log(text_data);
+            	console.log(text_data.responseText);
 	    }
 	    catch(e) {
 	    	alert(e.message);
