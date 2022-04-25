@@ -25,7 +25,12 @@ function findItem() {
 		let text_data_2 = loadFile("resources/item_finder/chest_id.txt");
 		const id_list = text_data_2.split("\n");
 		if (item_list.includes(textInput)) {
-		    document.getElementById("chestid").innerHTML = "Chest id: " + id_list[parseInt(item_list.findIndex(checkElement),10)];
+		    chest_id = id_list[parseInt(item_list.findIndex(checkElement),10)];
+		    if (chest_id != -1) {
+		    	document.getElementById("chestid").innerHTML = "Chest id: " + chest_id;
+		    } else {
+			document.getElementById("chestid").innerHTML = "Item is not obtainable in-game."
+		    }
 		} else {
 		    document.getElementById("chestid").innerHTML = "Item does not exist or is not in the list."
 		}
