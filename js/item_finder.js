@@ -16,11 +16,8 @@ function findItem() {
     }
     else {
 	    try {
-	    	/* let text_data = loadFile("resources/item_finder/items.txt");
-	    	document.getElementById("chestid").innerHTML = text_data; */
-		var fs = require('fs');
-		var text_data = fs.readFileSync("resources/item_finder/items.txt", 'utf-8');
-		var textByLine = text_data.split('\n')
+	    	let text_data = loadFile("resources/item_finder/items.txt");
+	    	document.getElementById("chestid").innerHTML = text_data;
             	console.log(text_data);
             	console.log(text_data.responseText);
 	    }
