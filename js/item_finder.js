@@ -17,9 +17,8 @@ function findItem() {
     else {
 	    try {
 	    	let text_data = loadFile("resources/item_finder/items.txt");
-	    	document.getElementById("chestid").innerHTML = text_data;
 		const item_list = text_data;
-		console.log = item_list[2];
+	    	document.getElementById("chestid").innerHTML = item_list[2];
 	    }
 	    catch(e) {
 	    	alert(e.message);
