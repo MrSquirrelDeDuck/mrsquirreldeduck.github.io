@@ -25,7 +25,7 @@ function findItem() {
 		let text_data_2 = loadFile("resources/item_finder/chest_id.txt");
 		const id_list = text_data_2.split("\n");
 		
-		document.getElementById("chestid").innerHTML = "Chest id: " + id_list[item_list.findIndex(textInput)];
+		document.getElementById("chestid").innerHTML = "Chest id: " + id_list[item_list.findIndex(checkElement(textInput))];
 	    }
 	    catch(e) {
 	    	alert(e.message);
