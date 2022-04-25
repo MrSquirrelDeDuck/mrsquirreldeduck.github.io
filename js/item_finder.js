@@ -9,6 +9,10 @@ function loadFile(filePath) {
   return result;
 }
 
+function checkElement(elementText) {
+  return elementText == document.getElementById("item_input").value;
+}
+
 function findItem() {
     var textInput = document.getElementById("item_input").value;
     if (textInput == ""){
@@ -18,7 +22,10 @@ function findItem() {
 	    try {
 	    	let text_data = loadFile("resources/item_finder/items.txt");
 		const item_list = text_data.split("\n");
-	    	document.getElementById("chestid").innerHTML = item_list[2];
+		let text_data_2 = loadFile("resources/item_finder/chest_id.txt");
+		const id_list = text_data_2.split("\n");
+		
+		document.getElementById("chestid").innerHTML = "Chest id: " + id_list[item_list.findIndex(textInput)];
 	    }
 	    catch(e) {
 	    	alert(e.message);
