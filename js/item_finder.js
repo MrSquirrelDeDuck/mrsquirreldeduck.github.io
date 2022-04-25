@@ -24,8 +24,11 @@ function findItem() {
 		const item_list = text_data.split("\n");
 		let text_data_2 = loadFile("resources/item_finder/chest_id.txt");
 		const id_list = text_data_2.split("\n");
-		
-		document.getElementById("chestid").innerHTML = "Chest id: " + id_list[parseInt(item_list.findIndex(checkElement),10)];
+		if (item_list.includes(textInput)) {
+		    document.getElementById("chestid").innerHTML = "Chest id: " + id_list[parseInt(item_list.findIndex(checkElement),10)];
+		} else {
+		    document.getElementById("chestid").innerHTML = "Item does not exist or is not in the list."
+		}
 	    }
 	    catch(e) {
 	    	alert(e.message);
