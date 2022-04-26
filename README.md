@@ -1,3 +1,3 @@
 ## Welcome
 
-I have no idea what I'm doing
+I kinda have an idea for what I'm doing.
