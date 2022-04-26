@@ -100,7 +100,7 @@ function findItem() {
     var chest_purple_ticked = "resources/item_finder/chests/chest_purple_ticked.png";
     var chest_pink_ticked = "resources/item_finder/chests/chest_pink_ticked.png"; */
 	
-    var textInput = document.getElementById("item_input").value.toLowerCase();
+    var textInput = document.getElementById("item_input").value;
     resetChests();
     if (textInput == ""){
         document.getElementById("chestid").innerHTML = "Please put something in the text box.";
@@ -108,7 +108,7 @@ function findItem() {
     else {
 	    try {
 	    	let text_data = loadFile("resources/item_finder/items.txt");
-		const item_list = text_data.toLowerCase().split("\n");
+		const item_list = text_data.split("\n");
 		let text_data_2 = loadFile("resources/item_finder/chest_id.txt");
 		const id_list = text_data_2.split("\n");
 		if (item_list.includes(textInput)) {
