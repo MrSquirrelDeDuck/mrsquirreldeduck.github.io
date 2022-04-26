@@ -81,7 +81,7 @@ function findItem() {
 		    chest_id = id_list[parseInt(item_list.findIndex(checkElement),10)];
 		    if (chest_id != -1) {
 		    	document.getElementById("chestid").innerHTML = "Chest id: " + chest_id;
-			tickChest(chest_id);
+			tickChest(String(chest_id));
 		    } else {
 			document.getElementById("chestid").innerHTML = "Item is not obtainable in-game."
 		    }
