@@ -47,7 +47,7 @@ function tickChest(chestid) {
 }
 
 function findItem() {
-    var chest_red = "resources/item_finder/chests/chest_red.png";
+    /* var chest_red = "resources/item_finder/chests/chest_red.png";
     var chest_orange = "resources/item_finder/chests/chest_orange.png";
     var chest_yellow = "resources/item_finder/chests/chest_yellow.png";
     var chest_green = "resources/item_finder/chests/chest_green.png";
@@ -65,7 +65,7 @@ function findItem() {
     var chest_lblue_ticked = "resources/item_finder/chests/chest_light_blue_ticked.png";
     var chest_dblue_ticked = "resources/item_finder/chests/chest_dark_blue_ticked.png";
     var chest_purple_ticked = "resources/item_finder/chests/chest_purple_ticked.png";
-    var chest_pink_ticked = "resources/item_finder/chests/chest_pink_ticked.png";
+    var chest_pink_ticked = "resources/item_finder/chests/chest_pink_ticked.png"; */
 	
     var textInput = document.getElementById("item_input").value;
     if (textInput == ""){
