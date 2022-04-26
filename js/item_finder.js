@@ -13,6 +13,39 @@ function checkElement(elementText) {
   return elementText == document.getElementById("item_input").value;
 }
 
+function resetChests() {
+    chest_list = document.getElementsByClassName("chest");
+    for (var i = 0; i < chest_list.length; i++) {
+	if (chest_list[i].classList.contains("red")){
+            chest_list[i].src = "resources/item_finder/chests/chest_red.png";
+        }
+	if (chest_list[i].classList.contains("orange")){
+            chest_list[i].src = "resources/item_finder/chests/chest_orange.png";
+        }
+	if (chest_list[i].classList.contains("yellow")){
+            chest_list[i].src = "resources/item_finder/chests/chest_yellow.png";
+        }
+	if (chest_list[i].classList.contains("green")){
+            chest_list[i].src = "resources/item_finder/chests/chest_green.png";
+        }
+	if (chest_list[i].classList.contains("mblue")){
+            chest_list[i].src = "resources/item_finder/chests/chest_medium_blue.png";
+        }
+	if (chest_list[i].classList.contains("lblue")){
+            chest_list[i].src = "resources/item_finder/chests/chest_light_blue.png";
+        }
+	if (chest_list[i].classList.contains("dblue")){
+            chest_list[i].src = "resources/item_finder/chests/chest_dark_blue.png";
+        }
+	if (chest_list[i].classList.contains("purple")){
+            chest_list[i].src = "resources/item_finder/chests/chest_purple.png";
+        }
+	if (chest_list[i].classList.contains("pink")){
+            chest_list[i].src = "resources/item_finder/chests/chest_pink.png";
+        }
+    }
+}
+
 function tickChest(chestid) {
     chest_list = document.getElementsByClassName(chestid);
     for (var i = 0; i < chest_list.length; i++) {
@@ -68,6 +101,7 @@ function findItem() {
     var chest_pink_ticked = "resources/item_finder/chests/chest_pink_ticked.png"; */
 	
     var textInput = document.getElementById("item_input").value;
+    resetChests();
     if (textInput == ""){
         document.getElementById("chestid").innerHTML = "Please put something in the text box.";
     }
