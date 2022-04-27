@@ -161,9 +161,9 @@ function checkCustom() {
 	document.getElementById("logo_image").src = "resources/item_finder/terraria_chest.png";
 	var userInput = document.getElementById("item_input").value;
 	let text_data_4 = loadFile("resources/item_finder/otherchests/chest_inputs.txt");
-	const chest_inputs = text_data4.split("\n");
+	const chest_inputs = text_data_4.split("\n");
 	let text_data_5 = loadFile("resources/item_finder/otherchests/chest_urls.txt");
-	const chest_urls = text_data5.split("\n");
+	const chest_urls = text_data_5.split("\n");
 	
 	if (chest_inputs.includes(userInput)) {
 		document.getElementById("logo_image").src = chest_urls[parseInt(chest_inputs.findIndex(checkElement),10)];
