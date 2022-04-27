@@ -119,6 +119,7 @@ function findItem() {
 		    	document.getElementById("chestid").innerHTML = "Chest id: " + chest_id;
 			document.getElementById("chestname").innerHTML = "Chest name: " + name_list[(chest_id - 1)]
 			tickChest(String(chest_id));
+			checkCustom();
 		    } else {
 			document.getElementById("chestid").innerHTML = "Item is not obtainable in-game."
 			document.getElementById("chestname").innerHTML = "Please look above."
@@ -154,4 +155,12 @@ function changeBackground() {
         if (document.getElementById("background_image").selectedIndex == 4) {
         document.body.style.backgroundImage = "url('resources/item_finder/terraria_underworld.jpg')"; 
     }
+}
+
+function checkCustom() {
+	document.getElementById("logo_image").src = "resources/item_finder/terraria_chest.png";
+	var userInput = document.getElementById("item_input").value;
+	if (userInput == "Bamboo Chest") {
+		document.getElementById("logo_image").src = "resources/item_finder/otherchests/chest_bamboo.png";
+	}
 }
