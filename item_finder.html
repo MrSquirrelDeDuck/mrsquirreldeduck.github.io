@@ -17,8 +17,30 @@
         top: 0px;
         right: 0px;
     }
-            
-            p,h1,h9 {    
+	#info_button {
+        position: absolute;
+        top: 30px;
+        right: 0px;
+		cursor:pointer;
+    }
+	#exit_button {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+		cursor:pointer;
+    }
+            .overlay{
+				background: rgba(0,0,0,0.8);
+				position:fixed;
+				width:100%;
+				height:100%;
+				top:0px;
+				left:0px;
+				z-index:1000;
+				border: 0px;
+				display: none;
+			}
+            p,h1,h9,h3 {    
                 color: white;
                 text-shadow:
                 -1px -1px 0 #000,
@@ -30,11 +52,28 @@
                 background-image: url('resources/item_finder/terraria_forest.jpg');
                 background-repeat: no-repeat;
                 background-attachment: fixed;
-                background-size: 100% auto;
+                background-size: cover;
             }
+			div {
+				position: absolute;
+				left: -500px;
+				border: 5px outset gray;
+				background-color: white;    
+				text-align: center;
+			}
+			select,option {
+				border: 5px outset gray;
+				background-color: white;    
+				text-align: center;
+			}
+			.overlaytext {
+				opacity: 1.2;
+				z-index: 1001;
+			}
         </style>
         <script src="js/item_finder.js"></script>
     </head>
+	<img src="resources/item_finder/question_mark_button.svg" width="50" height="50" id="info_button" onClick="document.getElementById('overlay').style.display = 'block';">
     <body onload="loadScript()"> 
             <select name="background_image" id="background_image" onchange="changeBackground()" autofocus>
             <option value="forest">Forest</option>
@@ -43,7 +82,7 @@
             <option value="corruption">Corruption</option>
             <option value="underworld">Underworld</option>
         </select><br>
-    <img src="resources/item_finder/terraria_chest.png" width="96" height="84">
+    <img src="resources/item_finder/terraria_chest.png" id="logo_image" width="96" height="84">
     <h1>Terraria Item Finder</h1>
     <h9>Non google sheet version</h9><br>
     <p>Put your item name here and click "Find"</p>
@@ -61,5 +100,23 @@
 <img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 97'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 97'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 99'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 100'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 101'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 102'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 103'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 104'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 105'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 106'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 107'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 108'> 	<img src="resources/item_finder/gap.png" width="24" height="21">	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 241'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 242'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 243'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 244'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 245'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 246'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 247'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 248'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 249'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 250'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 251'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 252'> 	<br>
 <img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 121'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 121'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 123'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 124'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 125'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 126'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 127'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 128'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 129'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 130'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 131'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 132'> 	<img src="resources/item_finder/gap.png" width="24" height="21">	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 241'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 242'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 243'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 244'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 269'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 270'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 271'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 272'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 273'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 274'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 275'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 276'> 	<br>
 <img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 133'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 133'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 123'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 136'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 125'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 126'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 127'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 128'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 129'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 130'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 131'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 132'> 	<img src="resources/item_finder/gap.png" width="24" height="21">	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 241'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 242'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 243'> 	<img src='resources/item_finder/chests/chest_pink.png' width='24' height='21' class='chest pink 244'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 269'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 270'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 271'> 	<img src='resources/item_finder/chests/chest_purple.png' width='24' height='21' class='chest purple 272'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 273'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 274'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 275'> 	<img src='resources/item_finder/chests/chest_dark_blue.png' width='24' height='21' class='chest dblue 276'> 	<br>
-     <b><p><span id="chestname">Chest name will be here!</span></p></b>
+	<b><p><span id="chestname">Chest name will be here!</span></p></b>
+	<div class="overlay" id="overlay">
+		<img src="resources/item_finder/exit_button.svg" width="50" height="50" id="exit_button" onClick="document.getElementById('overlay').style.display = '';">
+		<h1><span class="overlaytext">Instructions</span></h1> <hr style="width:50%"> 
+		<h3>In the text box type the name of your item.</h3>
+		<h3>It is case sensitive and must match perfectly.</h3>
+		<p>For example, "Dirt Block" is correct so "Dirt" will not work.</p>
+		<h3>Because of this, if you put in a block name and nothing pops up you may need to add "block" to the end</h3><br><br>
+		<h3>Once you type in the name of the item to lookup, press the "Find!" button.</h3><br>
+		<h3>When you click "Find!" if what you put into the text box is a valid item chests will light up</h3>
+		<h3>in the chest indicator. If a chest has an "x" on it that means that item goes in that chest.</h3>
+		<img src='resources/item_finder/chests/chest_dark_blue.png' width='48' height='42'>
+		<img src='resources/item_finder/gap.png' width='48' height='42'><img src='resources/item_finder/gap.png' width='48' height='42'><img src='resources/item_finder/gap.png' width='48' height='42'>
+		<img src='resources/item_finder/chests/chest_dark_blue_ticked.png' width='48' height='42'><br>
+		<h3><pre>Incorrect                   Correct </pre></h3><br>
+		<h3>Right above the chest indicator is where you'll see the chest id, it'll</h3>
+		<h3>also tell you what the problem is if you ever put in an invalid item.</h3>
+		<h3>Below the chest indicator is the name of the chest, very useful!</h3>
+	</div>
 </html>
