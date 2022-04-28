@@ -174,7 +174,7 @@ function checkCustom() {
 	console.log(parseInt(chest_inputs.findIndex(checkElement),10));
 	console.log(chest_urls[parseInt(chest_inputs.findIndex(checkElement),10)]);
 	if (chest_inputs.includes(userInput)) {
-		document.getElementById("logo_image").src = chest_urls[parseInt(chest_inputs.findIndex(checkElement),10)];
+		document.getElementById("logo_image").src = "resources/item_finder/otherchests/" + chest_urls[parseInt(chest_inputs.findIndex(checkElement),10)];
 	}
 	
 	/* if (userInput == "Bamboo Chest") {
