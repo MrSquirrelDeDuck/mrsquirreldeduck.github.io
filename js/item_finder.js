@@ -158,8 +158,10 @@ function changeBackground() {
 }
 
 function checkCustom() {
-	document.getElementById("logo_image").src = "resources/item_finder/terraria_chest.png";
 	var userInput = document.getElementById("item_input").value;
+	if (!(chest_inputs.includes(userInput))) {
+		document.getElementById("logo_image").src = "resources/item_finder/terraria_chest.png";
+	}
 	let text_data_4 = loadFile("resources/item_finder/otherchests/chest_inputs.txt");
 	while (text_data_4.includes("\r")) {
 		text_data_4 = text_data_4.replace("\r","")
