@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Item List
+        </title>
+        <link rel="icon" href="resources/item_finder/favicon.ico">
+        <style>
+            * {text-align: center; font-family:'verdana';}
+            
+                #background_image {
+        position: relative;
+    }
+    #background_image {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+            
+            p,h1,h9 {    
+                color: white;
+                text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+            }
+            h8 {
+                color: white;
+                text-shadow:
+                -1px -1px 0 #fff,
+                1px -1px 0 #fff,
+                -1px 1px 0 #fff,
+                1px 1px 0 #fff;
+                
+                
+            }
+            body {
+                background-image: url('resources/item_finder/terraria_forest.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% auto;
+            }
+        </style>
+        <script src="js/item_finder.js"></script>
+    </head>
+    <body onload="loadScript()"> 
+            <select name="background_image" id="background_image" onchange="changeBackground()" autofocus>
+            <option value="forest">Forest</option>
+            <option value="desert">Desert</option>
+            <option value="jungle">Jungle</option>
+            <option value="corruption">Corruption</option>
+            <option value="underworld">Underworld</option>
+        </select><br>
+</html>
