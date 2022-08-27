@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Contact</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="header">
+    <h2>School Contact</h2>
+</div>
+
+<form method="post" action="index.php">
+
+    <?php include('errors.php'); ?>
+
+    <div class="input-group">
+        <label>School Name</label>
+        <input type="text" name="schoolName" value="<?php echo $schoolName; ?>">
+    </div>
+    <div class="input-group">
+        <label>School Code</label>
+        <input type="text" name="schoolCode" value="<?php echo $schoolCode; ?>">
+    </div>
+    <div class="input-group">
+        <label>School County</label>
+        <input type="text" name="schoolCounty" value="<?php echo $schoolCounty; ?>">
+    </div>
+    <div class="input-group">
+        <label>School Specialty</label>
+        <input type="text" name="schoolSpecialty" value="<?php echo $schoolSpecialty; ?>">
+    </div>
+    <div class="input-group">
+        <label>HMIE Report</label>
+        <input type="text" name="hmieReport" value="<?php echo $hmieReport; ?>">
+    </div>
+
+    <div class="input-group">
+        <button type="submit" class="btn" name="reg_user">Register</button>
+    </div>
+    <a href="login.html">
+        <p>Sign in</p>
+    </a>
+</form>
+
+</body>
+</html>

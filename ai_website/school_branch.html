@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Branch</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+<div class="header">
+<button id="logout">Logout</button>
+<button id="profile">Profile</button>
+<button id="add_branch">Add Branch</button>
+<button id="add_school">Add School</button>
+<button id="add_admin">Add Admin</button>
+<button id="add_class">Add Class</button>
+</div>
+	<div id="content">
+		<table>
+			<thead>
+				<tr>
+					<th>S.No.</th>
+					<th>School Name</th>
+					<th>School Address</th>
+					<th>School Contact No.</th>
+					<th>Branch Name</th>
+					<th>Branch Address</th>
+					<th>Branch Contact No.</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php while($row = mysql_fetch_array($qry)){ ?>
+					<tr>
+						<td><?php echo $i; ?></td>
+						<td><?php echo $row['school_name']; ?></td>
+						<td><?php echo $row['school_address']; ?></td>
+						<td><?php echo $row['school_contact_no']; ?></td>
+						<td><?php echo $row['branch_name']; ?></td>
+						<td><?php echo $row['branch_address']; ?></td>
+						<td><?php echo $row['branch_contact_no']; ?></td>
+						<td>
+							<a href="#" class="edit" id="<?php echo $row['id']; ?>">Edit</a>
+							<a href="#" class="delete" id="<?php echo $row['id']; ?>">Delete</a>
+						</td>
+					</tr>
+				<?php $i++; } ?>
+			</tbody>
+		</table>
+		
+	</div>
+	<div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School About</title><link rel="stylesheet" type="text/css" href="admincss.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css%22%3E
+</head>
+<body>
+<div class="wrap">
+<div class="topnav">
+    <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="profile.html"><i class="fa fa-fw fa-user"></i>Profile</a>
+    <a href="about.html"><i class="fa fa-fw fa-info"></i>About</a>
+    <a href="logout.html"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+</div>
+<div class="side">
+  <h2>Categories</h2>
+  <ul>
+    <li><a href="teachers.html">Teacher</a></li>
+    <li><a href="students.html">Student</a></li>
+    <li><a href="school_courses.html">Course</a></li>
+    <li><a href="school_programs.html">Program</a></li>
+    <li><a href="exam.html">Exam</a></li>
+  </ul>
+</div>
+<div class="main">
+  <h2>Exam</h2>
+  <p>This is the exam page..</p>
+  <?php if(isset($message)){echo $message;}?>
+  <div class="form">
+  <form action="exam.php" method="POST">
+  <label>Course id :</label><input type="text" name="course_id" required="required">
+  <label>Exam name :</label><input type="text" name="exam_name" required="required">
+  <label>Marks :</label><input type="text" name="marks" required="required">
+  <input type="submit" value="submit" name="submit"></form>
+  </div>
+
+</div>
+</body>
+</html>

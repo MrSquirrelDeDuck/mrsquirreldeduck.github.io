@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Search</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+<?php
+$q = intval($_GET['q']);
+
+$con = mysqli_connect('localhost','root','','school_db');
+if (!$con) {
+  die('Could not connect: ' . mysqli_error($con));
+}
+
+mysqli_select_db($con,"school_db");
+$sql="SELECT * FROM school WHERE school_id = '".$q."'";
+$result = mysqli_query($con,$sql);
+
+echo "<table class='table'>
+<tr>
+<th>School ID</th>
+<th>School Name</th>
+<th>School Code</th>
+<th>School Status</th>
+<th>School Address</th>
+<th>School Phone</th>
+</tr>";
+while($row = mysqli_fetch_array($result)) {
+  echo "<tr>";
+  echo "<td>" . $row['school_id'] . "</td>";
+  echo "<td>" . $row['school_name'] . "</td>";
+  echo "<td>" . $row['school_code'] . "</td>";
+  echo "<td>" . $row['school_status'] . "</td>";
+  echo "<td>" . $row['school_address'] . "</td>";
+  echo "<td>" . $row['school_phone'] . "</td>";
+  echo "</tr>";
+}
+echo "</table>";
+mysqli_close($con);
+?>
+</body>
+</html>

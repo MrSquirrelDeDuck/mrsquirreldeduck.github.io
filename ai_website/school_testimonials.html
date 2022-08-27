@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Testimonials</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>asset/css/style.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>asset/css/responsive.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>asset/css/owl.carousel.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>asset/css/owl.theme.default.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="<?php echo base_url() ?>index.php/home"><img src="<?php echo base_url() ?>asset/images/logo.png" class="img-fluid" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="<?php echo base_url() ?>index.php/home">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+   <div class="banner">
+    <div class="owl-carousel owl-theme">
+      <div class="item" style="background-image: url('<?php echo base_url() ?>asset/images/banner1.jpg');">
+        <div class="inner_banner">
+          <div class="banner_text">
+            <h1>Testimonials</h1>
+          </div>
+        </div>
+      </div>
+      <div class="item" style="background-image: url('<?php echo base_url() ?>asset/images/banner2.jpg');">
+         <div class="inner_banner">
+          <div class="banner_text">
+            <h1>Testimonials</h1>
+          </div>
+        </div>
+      </div>
+      <div class="item" style="background-image: url('<?php echo base_url() ?>asset/images/banner3.jpg');">
+         <div class="inner_banner">
+          <div class="banner_text">
+            <h1>Testimonials</h1>
+          </div>
+        </div>
+      </div>
+      <div class="item" style="background-image: url('<?php echo base_url() ?>asset/images/banner4.jpg');">
+         <div class="inner_banner">
+          <div class="banner_text">
+            <h1>Testimonials</h1>
+          </div>
+        </div>
+      </div>
+   </div>
+  </div>
+  <?php foreach($testimonials as $testimonial){ ?>
+  <div class="testimonials">
+    <div class="container">
+      <div class="testi_box">
+        <div class="testi_img">
+          <img src="<?php echo base_url() ?>asset/images/<?php echo $testimonial->image;?>" class="img-fluid" alt="">
+        </div>
+        <div class="testi_text">
+          <span><?php echo $testimonial->name;?> &nbsp; <?php echo $testimonial->date; ?></span>
+          <h5><?php echo $testimonial->content; ?></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+  <footer>
+    <div class="container">
+      <div class="footer_box">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="footer_about">
+              <div class="footer_logo">
+                <a href="#"><img src="<?php echo base_url() ?>asset/images/logo.png" class="img-fluid" alt=""></a>
+              </div>
+              <p><?php echo $settings->about; ?></p>
+              <ul>
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                  <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="footer_blog">
+              <h4>Latest News</h4>
+              <?php foreach($blogs as $blog){ ?>
+              <div class="footer_blog_box">
+                <div class="footer_blog_img">
+                  <a href="<?php echo base_url() ?>index.php/home/blog_details/<?php echo $blog->id ?>"><img src="<?php echo base_url() ?>asset/images/<?php echo $blog->image ?>" class="img-fluid" alt=""></a>
+                </div>
+                <div class="footer_blog_text">
+                   <a href="<?php echo base_url() ?>index.php/home/blog_details/<?php echo $blog->id ?>"><h5><?php echo $blog->title ?></h5></a>
+                  <span><?php echo $blog->date ?></span>
+                  <a href="<?php echo base_url() ?>index.php/home/blog_details/<?php echo $blog->id ?>" class="btn_1">Read More</a>
+                </div>
+              </div>
+              <?php } ?>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-12">
+            <div class="footer_contact">
+              <h4>Contact Us</h4>
+              <p><?php echo $settings->address ?></p>
+              <ul>
+                <li><i class="fa fa-envelope"></i><?php echo $settings->email ?></li>
+                <li><i class="fa fa-phone"></i><?php echo $settings->mobile ?></li>
+              </ul>
+              <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12097.433213416579!2d-74.00622691265577!3d40.71278417791001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ssr!2srs!4v1535582983924" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <div class="container">
+        <p>Â© Copyright <?php echo date('Y')?> All Rights Reserverd.</p>
+      </div>
+    </div>
+  </footer>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><img src="<?php echo base_url() ?>asset/images/up.png" class="img-fluid" alt=""></button>
+  <script type="text/javascript">
+    $(document).ready(function() {
+ 
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear' 
+        };
+        
+                
+        $().UItoTop({ easingType: 'easeOutQuart' });
+                
+    });
+  </script>
+  <script src="<?php echo base_url() ?>asset/js/owl.carousel.min.js"></script>
+  <script type="text/javascript">
+    $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:1,
+            nav:false
+        },
+        1000:{
+            items:1,
+            nav:true,
+            loop:false
+        }
+    }
+})
+  </script>
+    <script type="text/javascript">
+    // When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html>

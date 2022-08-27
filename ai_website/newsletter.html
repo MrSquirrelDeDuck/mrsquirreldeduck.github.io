@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Newsletter</title>
+</head>
+<body>
+<h1>School Newsletter</h1>
+<p>Please provide your email address to receive our school newsletter.</p>
+<form action="newsletter_signup.php" method="post">
+    <fieldset>
+        <legend>Newsletter Signup</legend>
+        <label>Email Address:</label>
+        <input type="text" name="email" value="<?php if (!empty($email)) echo $email; ?>" /><br />
+        <input type="submit" value="Sign Up" name="submit" />
+    </fieldset>
+</form>
+</body>
+</html>

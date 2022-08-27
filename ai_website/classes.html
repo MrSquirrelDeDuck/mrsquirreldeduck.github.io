@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Classes</title>
+<meta charset="utf-8" />
+<link href="../../style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>School Classes</h1>
+<p>
+This is a list of classes that you can take as a student at this school.
+</p>
+<ul>
+<?php
+foreach ($classes as $class) {
+  echo "<li>";
+  echo $class["name"] . " (" . $class["description"] . ")";
+  echo "</li>";
+}
+?>
+</ul>
+</body>
+</html>

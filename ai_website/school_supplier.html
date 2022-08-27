@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Supplier</title>
+</head>
+<body>
+<header>
+<h1>School Supplier</h1>
+</header>
+
+<?php
+$items=array("logo" => array("name" => "Logo", "price" => 1.99, "image" => "logo.png"),
+			"notebook" => array("name" => "Notebook", "price" => 0.99, "image" => "notebook.png"),
+			"pencil" => array("name" => "Pencil", "price" => 0.45, "image" => "pencil.png"),
+			"eraser" => array("name" => "Eraser", "price" => 0.75, "image" => "eraser.png"),
+			"blunt-scissors" => array("name" => "Blunt Scissors", "price" => 1.49, "image" => "blunt-scissors.png"),
+			"sharp-scissors" => array("name" => "Sharp Scissors", "price" => 2.99, "image" => "sharp-scissors.png"),
+			"marker" => array("name" => "Marker", "price" => 1.79, "image" => "marker.png"),
+			"crayon" => array("name" => "Crayon", "price" => 0.89, "image" => "crayon.png"),
+			"eraser-cap" => array("name" => "Eraser Cap", "price" => 0.29, "image" => "eraser-cap.png"),
+			"ruler" => array("name" => "Ruler", "price" => 0.69, "image" => "ruler.png"),
+			"glue-stick" => array("name" => "Glue Stick", "price" => 1.09, "image" => "glue-stick.png"),
+			"hole-punch" => array("name" => "Hole Punch", "price" => 2.99, "image" => "hole-punch.png"),
+			"binder" => array("name" => "Binder", "price" => 7.99, "image" => "binder.png"),
+			"book-cover" => array("name" => "Book Cover", "price" => 2.99, "image" => "book-cover.png"),
+			"calculator" => array("name" => "Calculator", "price" => 19.99, "image" => "calculator.png"),
+			"dry-erase-board" => array("name" => "Dry Erase Board", "price" => 9.99, "image" => "dry-erase-board.png"),
+			"compass" => array("name" => "Compass", "price" => 3.49, "image" => "compass.png"),
+			"geometry-set" => array("name" => "Geometry Set", "price" => 4.99, "image" => "geometry-set.png"),
+			"protractor" => array("name" => "Protractor", "price" => 0.99, "image" => "protractor.png"),
+			"spiral-notebook" => array("name" => "Spiral Notebook", "price" => 1.79, "image" => "spiral-notebook.png"),
+			"spiral-notebook-refill" => array("name" => "Spiral Notebook Refill", "price" => 0.99, "image" => "spiral-notebook-refill.png"),
+			"spiral-bound-paper" => array("name" => "Spiral Bound Paper", "price" => 0.35, "image" => "spiral-bound-paper.png"),
+			"stapler" => array("name" => "Stapler", "price" => 4.99, "image" => "stapler.png"),
+			"tape" => array("name" => "Tape", "price" => 0.99, "image" => "tape.png"),
+			"tape-dispenser" => array("name" => "Tape Dispenser", "price" => 5.99, "image" => "tape-dispenser.png"),
+			"white-out" => array("name" => "White Out", "price" => 0.99, "image" => "white-out.png"),
+			"white-out-tape" => array("name" => "White Out Tape", "price" => 4.99, "image" => "white-out-tape.png"),
+			"white-board-cleaner" => array("name" => "White Board Cleaner", "price" => 1.49, "image" => "white-board-cleaner.png"),
+			"wooden-pencil" => array("name" => "Wooden Pencil", "price" => 0.99, "image" => "wooden-pencil.png"),
+			"yellow-highlighter" => array("name" => "Yellow Highlighter", "price" => 0.99, "image" => "yellow-highlighter.png"));
+
+
+if(isset($_POST['submit'])){
+	foreach($_POST as $key => $value){
+		$_SESSION[$key] = $value;
+	}
+	$_SESSION['quantity']=1;
+}
+
+echo "<div class='shopping-cart'>";
+echo "<h2>Shopping Cart</h2>";
+if(!empty($_SESSION)){
+	// calculate total
+	$total = 0;
+	foreach($_SESSION as $key => $value){
+		if($key != 'quantity'){
+			$total += $value * $_SESSION['quantity'];
+		}
+	}
+	echo "<h3>Total: &#36;$total</h3>";
+	echo "<form method='POST'><input type='submit' name='submit' value='Place Order'></form>";
+}
+echo "</div>";
+
+echo "<div class=\"items\">";
+$i=0;
+foreach($items as $key => $value){
+	echo "<div class=\"item\">";
+	echo "<div class=\"item-img\"><img src=\"images/$value[image]\" alt=\"$value[name]\" /></div>";
+	echo "<div class=\"item-name\">$value[name]</div>";
+	echo "<div class=\"item-price\">&#36;$value[price]</div>";
+	$i++;
+	echo "<form method='POST'><input type='hidden' name='$key' value='$value[price]' /><input type='text' name='quantity' value='1' /><input type='submit' name='submit' value='Add to Cart' /></form>";
+}
+echo "</div>";
+
+?>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Privacy</title>
+<?php require_once("head.php"); ?>
+</head>
+<body>
+<?php require_once("top.php"); ?>
+
+<div class="main">
+<h1>School Privacy</h1>
+
+<h2>Introduction</h2>
+<p>
+This privacy policy describes how the student data collected by the One Page School Application is used,
+and how it is protected.
+</p>
+
+<h2>What Data Is Collected</h2>
+<p>
+The following data is collected:
+<ul>
+<li>Name, email address, and a password (used to login) of the administrator</li>
+<li>Names of students</li>
+<li>Names of parents (optional)</li>
+<li>School name, address, and phone number</li>
+<li>School year</li>
+<li>Classes</li>
+<li>Attendance</li>
+<li>Grades</li>
+</ul>
+</p>
+
+<h2>How Data Is Used</h2>
+<p>
+All of the data is stored in a database and is used to display the information on the website when you are logged in.
+The email address and password are used to log you in to the admin panel.
+</p>
+
+<h2>How Data Is Protected</h2>
+<p>
+The email address and password of the administrator are encrypted with a salted hash.
+The salted hash means that it would be very difficult to crack the hash and figure out the original password.
+The administrator's email address is also used as an identifier in the database, so it is not possible to log in using
+an email address that is not in the database.
+</p>
+<p>
+The database is stored in a directory on the server that is not accessible to the public.
+That means that nobody can access the database except for the website itself.
+</p>
+
+<h2>Questions</h2>
+<p>
+If you have questions about this privacy policy, please contact me at <a href="https://youtu.be/GtL1huin9EE">me@myself.com</a>.
+</p>
+
+</div>
+
+<?php require_once("footer.php"); ?>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Exam</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar-inner">
+<a class="brand" href="#">School Exam System</a>
+<ul class="nav">
+<li><a href="../admin">Home</a></li>
+<li><a href="../admin/exams.php">Exam</a></li>
+<li><a href="#">About Us</a></li>
+</ul>
+<div class="btn-group pull-right">
+<a class="btn btn-primary" href="../index.php">Sign Out</a>
+</div>
+</div>
+</div>
+<br />
+<br />
+<br />
+
+    <div class="container">
+        <div class="row">
+            <div class="span4 offset4">
+			<div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Exam</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                            <fieldset>
+                                <div class="form-group">
+                                <input class="span3" placeholder="Course" name="course" type="text" autofocus required>
+                                </div>
+                                <div class="form-group">
+                                <input class="span3" placeholder="Exam" name="exam" type="text" autofocus required>
+                                </div>
+                                <div class="form-group">
+                                <input class="span3" placeholder="Full Marks" name="fm" type="text" autofocus required>
+                                </div>
+								<div class="form-group">
+                                <input class="span3" placeholder="Date" name="date" type="date" autofocus required>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <input type="submit" name="submit" class="btn btn-lg btn-success btn-block" value="Submit">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+	<!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

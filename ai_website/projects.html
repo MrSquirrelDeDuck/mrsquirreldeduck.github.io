@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Projects</title>
+
+<style>
+.item {
+    width: 500px;
+    height: 400px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+}
+.image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.image img {
+    width: 100%;
+    height: 100%;
+}
+.text {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .7);
+    text-align: center;
+    padding: 25px 0;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.text:after {
+    content: " ";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.7);
+    height: 100%;
+    width: 10%;
+    opacity: 0;
+    border-radius: 50%;
+    z-index: -1;
+}
+.text:hover {
+    opacity: 1;
+}
+.text:hover:after {
+    opacity: 1;
+}
+</style>
+
+<script>
+$(document).ready(function() {
+    $(".image").css({ "cursor": "pointer" });
+    $(".image").click(function() {
+        var $image = $(this);
+        $image.find("img").fadeToggle(function() {
+            $(".text").toggleClass("show");
+        });
+    });
+});
+</script>
+
+</head>
+<body>
+
+<div class="item">
+    <img src="http://localhost/test/1.jpg" alt="Project One" class="image">
+    <div class="text">
+        <h2>Project One</h2>
+        <p>some text</p>
+        <span>A description...</span>
+        <a href="#"><i class="fa fa-angle-right"></i></a>
+    </div>
+</div>
+
+<div class="item">
+    <img src="http://localhost/test/2.jpg" alt="Project Two" class="image">
+    <div class="text">
+        <h2>Project Two</h2>
+        <p>some text</p>
+        <span>A description...</span>
+        <a href="#"><i class="fa fa-angle-right"></i></a>
+    </div>
+</div>
+
+<div class="item">
+    <img src="http://localhost/test/3.jpg" alt="Project Three" class="image">
+    <div class="text">
+        <h2>Project Three</h2>
+        <p>some text</p>
+        <span>A description...</span>
+        <a href="#"><i class="fa fa-angle-right"></i></a>
+    </div>
+</div>
+
+</body>
+</html>

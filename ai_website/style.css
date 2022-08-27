@@ -1,0 +1,45 @@
+#info_image img {
+        width: 100%;
+        transition: transform .5s ease, opacity .5s ease;
+    }
+
+    #info_image img:hover {
+        transform: rotateX(10deg);
+        opacity: .5;
+    }
+
+    #info_box {
+        margin-left: 30px;
+        width: 550px;
+        height: 300px;
+        background-color: rgba(0, 0, 0, .5);
+        border-radius: 15px;
+        box-sizing: border-box;
+        padding: 20px;
+        text-align: left;
+        color: #fff;
+        transition: all .5s ease;
+    }
+
+    #info_box h1 {
+        font-size: 25px;
+        margin: 0;
+        padding: 0;
+    }
+
+    #info_box p {
+        font-size: 16px;
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    #info_box:hover {opacity: 1;
+    }
+
+    #info_box .img {
+        width: 180px;
+        height: 180px;
+        float: left;
+        margin: 5px 10px 0 0;
+        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.4);
+    }

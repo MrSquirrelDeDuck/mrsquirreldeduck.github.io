@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Courses</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700i" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<a href="home.html"><i class="fa fa-home"></i>Home</a>
+	<a href="students.html"><i class="fa fa-user-graduate"></i>Student Details</a>
+	<a href="school_courses.html"><i class="fa fa-book-reader"></i>Course Details</a>
+	<a href="school_courses.html"><i class="fa fa-tasks"></i>Course Assignment</a>
+	<a href="report_generation.html"><i class="fa fa-clipboard"></i>Report Generation</a>
+	<a href="logout.html"><i class="fa fa-sign-out-alt"></i>Logout</a>
+</div>
+
+<div class="main">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<span class="navbar-brand mb-0 h1">University Management</span>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<h1 class="display-4">School Courses</h1>
+				<hr>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="home.html">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="school_courses.html">Course Assignment</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Course Details</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="table-responsive">
+					<?php
+						$sql = "SELECT id, course, credit, semester FROM courses ORDER BY semester, course";
+						$result = $conn->query($sql);
+
+						if ($result->num_rows > 0) {
+							echo "<table class='table table-bordered table-striped table-hover'>";
+							echo "<thead class='thead-dark text-center'>";
+							echo "<tr>";
+							echo "<th scope='col'>Course ID</th>";
+							echo "<th scope='col'>Course</th>";
+							echo "<th scope='col'>Credits</th>";
+							echo "<th scope='col'>Semester</th>";
+							echo "</tr>";
+							echo "</thead>";
+							echo "<tbody class='text-center'>";
+							while($row = $result->fetch_assoc()) {
+								echo "<tr>";
+								echo "<td>".$row["id"]."</td>";
+								echo "<td>".$row["course"]."</td>";
+								echo "<td>".$row["credit"]."</td>";
+								echo "<td>".$row["semester"]."</td>";
+								echo "</tr>";
+							}
+							echo "</tbody>";
+							echo "</table>";
+						} else {
+							echo "<div class='alert alert-warning alert-dismissible fade show' role='alert'>";
+							echo "<strong>".$_SESSION['username']."!</strong> No courses found.";
+							echo "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>";
+							echo "<span aria-hidden='true'>&times;</span>";
+							echo "</button></div>";
+						}
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

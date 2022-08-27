@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Jobs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.8.9.custom.css" />
+<script type="text/javascript" src="jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.9.custom.min.js"></script>
+<script type="text/javascript" src="jquery.form.js"></script>
+<script type="text/javascript" src="jquery.fileupload.js"></script>
+<script type="text/javascript" src="jquery.colorbox.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var options = {
+        uploadPath: 'images/profile/'
+    }
+    $('#file_upload').fileUploadUI(options);
+    var colorbox = $.colorbox({ opacity: 0.8 });
+    $("#colorbox").colorbox({ inline: true, opacity: 1.0, rel: 'stylesheet' });
+});
+</script>
+<style>
+    .ui-widget-content {
+        background: #d3d3d3;
+    }
+</style>
+</head>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+<tr>
+    <td align="center">
+        <table width="600" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td valign="top">
+                    <div class="page-header">
+                        <h1>&nbsp;</h1>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                             <td valign="top">
+                    <div class="content-wrap">
+                        <div id="myContent" style="margin: 0 auto;">
+                            <div>
+                                <h2 class="green">Upload Your CV</h2>
+                            </div>
+                              <form method="post" name="fileupload" id="fileupload" enctype="multipart/form-data">
+                                <input type="file" name="file" class="fileUpload" id="file_upload" />
+                                <div id="file_upload_overlay"></div>
+                                <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+                                <input type="hidden" name="UPLOAD_FILE" value="true" />
+                                <input type="hidden" name="STYLESHEET" value="" />
+                                <input type="hidden" name="THUMBNAIL" value="" />
+                                <input type="hidden" name="FNAME" value="default" />
+                                <input type="hidden" name="EMAIL" value=""/>
+                                <input type="hidden" name="PHONE" value=""/>
+                                <input type="hidden" name="MESSAGE" value=""/>
+                                <input type="hidden" name="STATUS" value=""/>
+                                          <input type="hidden" name="REPLY" value=""/>
+                                <input type="hidden" name="REPLYTO" value=""/>
+                                <input type="hidden" name="EMAIL2" value=""/>
+                                <input type="hidden" name="EMAIL3" value=""/>
+                                           <input type="hidden" name="DATE" value="" />
+                                <input type="hidden" name="CITY" value="" />
+                                <input type="hidden" name="CLIENTS_NO" value="" />
+                                <input type="hidden" name="ADDRESS1" value="" />
+                                           <input type="hidden" name="ADDRESS2" value="" />
+                                <input type="hidden" name="ADDRESS3" value="" />
+                                <input type="hidden" name="ADDRESS4" value="" />
+                                <input type="hidden" name="ADDRESS5" value="" />
+                                        <input type="hidden" name="ADDRESS6" value="" />
+                                <input type="hidden" name="ADDRESS7" value="" />
+                                <input type="hidden" name="CITY2" value="" />
+                                          <input type="hidden" name="STATE" value="" />
+                                  <input type="hidden" name="ZIPCODE" value="" />
+                                           <input type="hidden" name="COUNTRY" value="" />
+                                                        <input type="hidden" name="COMPANY" value="" />
+                                                                                                                                                                                                                                                                                                       <input type="hidden" name="URL" value="" />
+                                                                                <input type="hidden" name="NAME" value="" />
+                                                                                                      <input type="hidden" name="EMAIL" value="" />
+                                                                                                                                                                                                                                                                                                                                                                                                  <input type="hidden" name="PHONE" value="" />
+                                                                                                        <input type="hidden" name="NAME" value="" />
+                                                                                                      <input type="hidden" name="EMAIL" value="" />
+                                                                                                      <input type="hidden" name="PHONE" value="" />
+                                                                                                      <input type="hidden" name="COMPANY" value="" />
+                                                                                                      <input type="hidden" name="ADDRESS" value="" />
+                                                                                                      <input type="hidden" name="COUNTRY" value="" />
+                                                                                                      <input type="hidden" name="CITY" value="" />
+                                                                                                      <input type="hidden" name="ZIP" value="" />
+                                                                                                      <input type="hidden" name="NOTES" value="" />
+                                                                                                    </div>
+                                                                                                    <div class="modal-footer">
+                                                                                                      <div class="form-group">
+                                                                                                        <button type="submit" class="btn btn-primary btn-lg" name="submit" value="submit">Submit</button>
+                                                                                                        <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</button>
+                                                                                                      </div>
+                                                                                                    </div>
+                                                                                                  </form>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </td>
+                                                                                          <td>
+                                                                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?php echo $row['id']; ?>">Info</button>
+                                                                                            <div class="modal fade" id="myModal<?php echo $row['id']; ?>" role="dialog">
+                                                                                              <div class="modal-dialog">
+                                                                                                <div class="modal-content">
+                                                                                                  <div class="modal-header">
+                                                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                                                    <h4 class="modal-title">Ticket Info</h4>
+                                                                                                  </div>
+                                                                                                  <div class="modal-body">
+                                                                                                    <p>Name: <?php echo $row['name']; ?></p>
+                                                                                                    <p>Email: <?php echo $row['email']; ?></p>
+                                                                                                    <p>Phone: <?php echo $row['phone']; ?></p>
+                                                                                                    <p>Address: <?php echo $row['address']; ?></p>
+                                                                                                    <p>Company: <?php echo $row['company']; ?></p>
+                                                                                                    <p>Country: <?php echo $row['country']; ?></p>
+                                                                                                    <p>City: <?php echo $row['city']; ?></p>
+                                                                                                    <p>Postal Code: <?php echo $row['zip']; ?></p>
+                                                                                                    <p>Notes: <?php echo $row['notes']; ?></p>
+                                                                                                    <p>Session 1: <?php if($row['session1'] == '0') { echo 'No'; } else { echo 'Yes'; } ?></p>
+                                                                                                    <p>Session 2: <?php if($row['session2'] == '0') { echo 'No'; } else { echo 'Yes'; } ?></p>
+                                                                                                  </div>
+                                                                                                  <div class="modal-footer">
+                                                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                                  </div>
+                                                                                                </div>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          </td>
+                                                                                        </tr>
+                                                                                      <?php $i++; } ?>
+                                                                                    </tbody>
+                                                                                  </table>
+                                                                                </div>
+                                                                              </div>
+                                                                              <div class="tab-pane" id="tab2">
+                                                                                <div class="table-responsive">
+                                                                                  <table class="table table-bordered table-hover table-striped">
+                                                                                    <thead>
+                                                                                      <tr>
+                                                                                        <th style="width:5%;">#</th>
+                                                                                        <th style="width:20%;">Name</th>
+                                                                                        <th style="width:20%;">Email</th>
+                                                                                        <th style="width:20%;">Phone</th>
+                                                                                        <th style="width:10%;">Company</th>
+                                                                                        <th style="width:10%;">Country</th>
+                                                                                        <th style="width:10%;">City</th>
+                                                                                        <th style="width:10%;">Zip</th>
+                                                                                        <th style="width:15%;">Notes</th>
+                                                                                        <th style="width:10%;">Session 1</th>
+                                                                                        <th style="width:10%;">Session 2</th>
+                                                                                        <th style="width:10%;">Edit</th>
+                                                                                        <th style="width:10%;">Info</th>
+                                                                                      </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                      <?php $i = 1; foreach($session2 as $row) { ?>
+                                                                                        <tr>
+                                                                                          <td><?php echo $i; ?></td>
+                                                                                          <td><?php echo $row['name']; ?></td>
+                                                                                          <td><?php echo $row['email']; ?></td>
+                                                                                          <td><?php echo $row['phone']; ?></td>
+                                                                                          <td><?php echo $row['company']; ?></td>
+                                                                                          <td><?php echo $row['country']; ?></td>
+                                                                                          <td><?php echo $row['city']; ?></td>
+                                                                                          <td><?php echo $row['zip']; ?></td>
+                                                                                          <td><?php echo $row['notes']; ?></td>
+                                                                                          <td><?php if($row['session1'] == '0') { echo 'No'; } else { echo 'Yes'; } ?></td>
+                                                                                          <td><?php if($row['session2'] == '0') { echo 'No'; } else { echo 'Yes'; } ?></td>
+                                                                                          <td>
+                                                                                            <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal<?php echo $row['id']; ?>">Edit</button>
+                                                                                            <div class="modal fade" id="myModal<?php echo $row['id']; ?>" role="dialog">
+                                                                                              <div class="modal-dialog">
+                                                                                                <div class="modal-content">
+                                                                                                  <div class="modal-header">
+                                                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                                                    <h4 class="modal-title">Edit Ticket</h4>
+                                                                                                  </div>
+                                                                                                  <form method="post" action="">
+                                                                                                    <div class="modal-body">
+
+                                                                                                      <div class="form-group">
+                                                                                                        <label for="name">Name</label>
+                                                                                                        <input type="text" class="form-control" id="name" name="name" value="<?php echo $row['name']; ?>" required>
+                                                                                                      </div>
+
+                                                                                                      <div class="form-group">
+                                                                                                        <label for="email">Email</label>
+                                                                                                        <input type="email" class="form-control" id="email" name="email" value="<?php echo $row['email']; ?>" required>
+                                                                                                      </div>
+
+                                                                                                      <div class="form-group">
+                                                                                                        <label for="phone">Phone</label>
+                                                                                                        <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $row['phone']; ?>" required>
+                                                                                                      </div>
+
+                                                                                                      <div class="form-group">
+                                                                                                        <label for="company">Company</label>
+                                                                                                        <input type="text" class="form-control" id="company" name="company" value="<?php echo $row['company']; ?>" required>
+                                                                                                      </div>
+
+                                                                                                      <div class="form-group">
+                                                                                                        <label for="address">Address</label>
+                                                                                                        <input type="text" class="form-control" id="address" name="address" value="<?php echo $row['address']; ?>" required>
+                                                                                                      </div>
+
+                                                                                                      <div class="form-group">
+                                                                                                        <label for="country">Country</label>
+                                                                                                        <select class="form-control" id="country" name="country" required>
+                                                                                                          <option value="">Select</option>
+                                                                                                          <option value="Afghanistan">Afghanistan</option>
+                                                                                                          <option value="Aland Islands">Aland Islands</option>
+                                                                                                          <option value="Albania">Albania</option>
+                                                                                                          <option value="Algeria">Algeria</option>
+                                                                                                          <option value="American Samoa">American Samoa</option>
+                                                                                                          <option value="Andorra">Andorra</option>
+                                                                                                          <option value="Angola">Angola</option>
+                                                                                                          <option value="Anguilla">Anguilla</option>
+                                                                                                          <option value="Antarctica">Antarctica</option>
+                                                                                                          <option value="Antigua And Barbuda">Antigua And Barbuda</option>
+                                                                                                          <option value="Argentina">Argentina</option>
+                                                                                                          <option value="Armenia">Armenia</option>
+                                                                                                          <option value="Aruba">Aruba</option>
+                                                                                                          <option value="Australia">Australia</option>
+                                                                                                          <option value="Austria">Austria</option>
+                                                                                                          <option value="Azerbaijan">Azerbaijan</option>
+                                                                                                          <option value="Bahamas">Bahamas</option>
+                                                                                                          <option value="Bahrain">Bahrain</option>
+                                                                                                          <option value="Bangladesh">Bangladesh</option>
+                                                                                                          <option value="Barbados">Barbados</option>
+                                                                                                          <option value="Belarus">Belarus</option>
+                                                                                                          <option value="Belgium">Belgium</option>
+                                                                                                          <option value="Belize">Belize</option>
+                                                                                                          <option value="Benin">Benin</option>
+                                                                                                          <option value="Bermuda">Bermuda</option>
+                                                                                                          <option value="Bhutan">Bhutan</option>
+                                                                                                          <option value="Bolivia">Bolivia</option>
+                                                                                                          <option value="Bosnia And Herzegovina">Bosnia And Herzegovina</option>
+                                                                                                          <option value="Botswana">Botswana</option>
+                                                                                                          <option value="Bouvet Island">Bouvet Island</option>
+                                                                                                          <option value="Brazil">Brazil</option>
+                                                                                                          <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                                                                                          <option value="Brunei Darussalam">Brunei Darussalam</option>
+                                                                                                          <option value="Bulgaria">Bulgaria</option>
+                                                                                                          <option value="Burkina Faso">Burkina Faso</option>
+                                                                                                          <option value="Burundi">Burundi</option>
+                                                                                                          <option value="Cambodia">Cambodia</option>
+                                                                                                          <option value="Cameroon">Cameroon</option>
+                                                                                                          <option value="Canada">Canada</option>
+                                                                                                          <option value="Cape Verde">Cape Verde</option>
+                                                                                                          <option value="Cayman Islands">Cayman Islands</option>
+                                                                                                          <option value="Central African Republic">Central African Republic</option>
+                                                                                                          <option value="Chad">Chad</option>
+                                                                                                          <option value="Chile">Chile</option>
+                                                                                                          <option value="China">China</option>
+                                                                                                          <option value="Christmas Island">Christmas Island</option>
+                                                                                                          <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                                                                                                          <option value="Colombia">Colombia</option>
+                                                                                                          <option value="Comoros">Comoros</option>
+                                                                                                          <option value="Congo">Congo</option>
+                                                                                                          <option value="Congo, The Democratic Republic Of The">Congo, The Democratic Republic Of The</option>
+                                                                                                          <option value="Cook Islands">Cook Islands</option>
+                                                                                                          <option value="Costa Rica">Costa Rica</option>
+                                                                                                          <option value="Cote D'Ivoire">Cote D'Ivoire</option>
+                                                                                                          <option value="Croatia">Croatia</option>
+                                                                                                          <option value="Cuba">Cuba</option>
+                                                                                                          <option value="Cyprus">Cyprus</option>
+                                                                                                          <option value="Czech Republic">Czech Republic</option>
+                                                                                                          <option value="Denmark">Denmark</option>
+                                                                                                          <option value="Djibouti">Djibouti</option>
+                                                                                                          <option value="Dominica">Dominica</option>
+                                                                                                          <option value="Dominican Republic">Dominican Republic</option>
+                                                                                                          <option value="Ecuador">Ecuador</option>
+                                                                                                          <option value="Egypt">Egypt</option>
+                                                                                                          <option value="El Salvador">El Salvador</option>
+                                                                                                          <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                                                                                          <option value="Eritrea">Eritrea</option>
+                                                                                                          <option value="Estonia">Estonia</option>
+                                                                                                          <option value="Ethiopia">Ethiopia</option>
+                                                                                                          <option value="Falkland Islands (Malvinas)">Falkland Islands (Malvin

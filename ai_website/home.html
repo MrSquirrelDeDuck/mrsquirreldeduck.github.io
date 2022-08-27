@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Homepage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css%22%3E
+<style>
+body {
+    background-color: Tan;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#logout {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: Tomato;
+    padding: 10px;
+    width: auto;
+    margin: 0px;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    color: White;
+}
+
+#logout:hover {
+    background-color: Tomato;
+    color: Aquamarine;
+}
+
+.tab {
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+table {
+    position: relative;
+    left:50px;
+    top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: Tan;
+}
+
+th {
+    text-align: center;
+    padding: 20px;
+    background-color: Tomato;
+    color: White;
+    border-style: solid;
+    border-width: 0px 3px 3px 0px;
+    border-color: Gray;
+}
+
+tr {
+    text-align: center;
+    padding: 20px;
+    background-color: Tan;
+    color: Brown;
+    border-style: solid;
+    border-width: 0px 3px 3px 0px;
+    border-color: Gray;
+}
+
+td {
+    text-align: center;
+    padding: 20px;
+    background-color: Tan;
+    color: Tan;
+    border-style: solid;
+    border-width: 0px 3px 3px 0px;
+    border-color: Gray;
+}
+
+</style>
+</head>
+<?php
+    session_start();
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "myTestDB";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } 
+    $sql = "SELECT * FROM Users";
+    $result = mysqli_query($conn, $sql);
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>User ID</th>";
+    echo "<th>Username</th>";
+    echo "<th>Password</th>";
+    echo "<th>First Name</th>";
+    echo "<th>Last Name</th>";
+    echo "<th>Email</th>";
+    echo "<th>D.O.B</th>";
+    echo "</tr>";
+    while($row = mysqli_fetch_array($result)) {
+        echo "<tr><td>" . $row["User_ID"]. "</td><td>" . $row["Username"]. " </td><td>" . $row["Password"]. " </td><td>" . $row["First_Name"]. " </td><td>" . $row["Last_Name"]. " </td><td>" . $row["Email"]. " </td><td>" . $row["DOB"]. " </td></tr>";
+    }
+    echo "</table>";
+    $conn->close();
+}
+?>
+<html>
+<body>
+<form action="run_query.php" method="post">
+    <textarea name="query" rows="10" cols="140">
+    </textarea><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

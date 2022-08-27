@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Feedback</title>
+<link rel="stylesheet" type="text/css" href="css/feedback.css">
+</head>
+<body>
+<h2>Feedback Form</h2>
+<form action="feedback.php" method="POST">
+        <div class="input-group">
+                <label>First Name</label>
+                <input type="text" name="firstname" required>
+        </div>
+        <div class="input-group">
+                <label>Last Name</label>
+                <input type="text" name="lastname" required>
+        </div>
+        <div class="input-group">
+                <label>Age</label>
+                <input type="text" name="age" required>
+        </div>
+        <div class="input-group">
+                <label>Gender</label>
+                <input type="radio" name="gender" value="male" required> Male
+                <input type="radio" name="gender" value="female"> Female
+        </div>
+        <div class="input-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+        </div>
+        <div class="input-group">
+                <label>Phone</label>
+                <input type="text" name="phone" required>
+        </div>
+        <div class="input-group">
+                <label>Address</label>
+                <input type="text" name="address" required>
+        </div>
+        <div class="input-group">
+                <label>Feedback</label>
+                <input type="textarea" name="feedback" required>
+        </div>
+        <div class="input-group">
+            <button type="submit" name="submit" class="btn">Send</button>
+        </div>
+</form>
+</body>
+</html>

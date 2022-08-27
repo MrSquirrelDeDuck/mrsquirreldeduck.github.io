@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Gallery</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<?php include_once("header.php");?>
+<div class="wrapper row4">
+  <div id="container" class="clear"> 
+    <div class="one_quarter first">
+      <h6 class="title">School Gallery</h6>
+      <nav class="sdb_holder">
+        <ul>
+          <li><a href="gallery.html">School Photo Gallery</a></li>
+          <li><a href="gallery.html">Student Photo Gallery</a></li>
+        </ul>
+      </nav>
+      <h6 class="title">School News</h6>
+      <article>
+        <h2>School Holidays</h2>
+        <p>Get the latest school news and announcements here.</p>
+        <p><a href="school_news.html">Continue Reading &raquo;</a></p>
+      </article>
+      <h6 class="title">School Newsletter</h6>
+      <article>
+        <h2>School Holidays</h2>
+        <p>Get the latest school news and announcements here.</p>
+        <p><a href="newsletter.html">Continue Reading &raquo;</a></p>
+      </article>
+    </div>
+    <div class="three_quarter"> 
+      <section id="comments">
+        <h2>School Gallery</h2>
+        <ul>
+          <li>
+            <article>
+              <header>
+                <figure class="avatar"><img src="images/demo/avatar.png" alt=""></figure>
+                <address>
+                By <a href="#">A Name</a>
+                </address>
+                <time datetime="2045-04-06T08:15+00:00">Friday, 06<sup>th</sup> April 2045 @08:15:00</time>
+              </header>
+              <div class="comcont">
+                <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <header>
+                <figure class="avatar"><img src="images/demo/avatar.png" alt=""></figure>
+                <address>
+                By <a href="#">A Name</a>
+                </address>
+                <time datetime="2045-04-06T08:15+00:00">Friday, 06<sup>th</sup> April 2045 @08:15:00</time>
+              </header>
+              <div class="comcont">
+                <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article>
+              <header>
+                <figure class="avatar"><img src="images/demo/avatar.png" alt=""></figure>
+                <address>
+                By <a href="#">A Name</a>
+                </address>
+                <time datetime="2045-04-06T08:15+00:00">Friday, 06<sup>th</sup> April 2045 @08:15:00</time>
+              </header>
+              <div class="comcont">
+                <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+              </div>
+            </article>
+          </li>
+        </ul>
+        <h2>Leave a Comment</h2>
+        <form action="#" method="post">
+          <div class="one_third first">
+            <label for="name">Name <span>*</span></label>
+            <input type="text" name="name" id="name" value="" size="22" required>
+          </div>
+          <div class="one_third">
+            <label for="email">Mail <span>*</span></label>
+            <input type="email" name="email" id="email" value="" size="22" required>
+          </div>
+          <div class="one_third">
+            <label for="url">Website</label>
+            <input type="url" name="url" id="url" value="" size="22">
+          </div>
+          <div class="clear"></div>
+          <div>
+            <label for="message">Message</label>
+            <textarea name="message" id="message" cols="25" rows="10"></textarea>
+          </div>
+          <div>
+            <input type="submit" name="submit" value="Submit Form">
+            &nbsp;
+            <input type="reset" name="reset" value="Reset Form">
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+<?php include_once("footer.php");?>
+</body>
+</html>

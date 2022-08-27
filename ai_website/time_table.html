@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Time table</title>
+<style>
+
+*{
+box-sizing: border-box;
+
+}
+
+.time-table{
+width: 100%;
+height: 100%;
+}
+
+.time-table table{
+
+width: 100%;
+border: 2px solid #000;
+border-collapse: collapse;
+}
+
+.time-table table th{
+background: #ccc;
+text-align: center;
+border: 1px solid #000;
+}
+
+.time-table table td{
+text-align: center;
+border: 1px solid #000;
+}
+
+.time-table table td input{
+width: 60%;
+text-align: center;
+font-size: 20px;
+}
+
+.time-table table td select{
+width: 60%;
+text-align: center;
+font-size: 20px;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class ="time-table">
+<form action ="table.php" method ="post">
+
+<table>
+
+<tr>
+<th>Day</th>
+<th>Period</th>
+<th>Teacher</th>
+<th>Subject</th>
+
+</tr>
+
+<?php for($i =0; $i< count($result); $i++){ ?>
+<tr>
+<td>
+<input type ="text" name ="day[]" value ="<?php echo $result[$i]['day']; ?>">
+</td>
+<td>
+<input type ="text" name ="period[]" value ="<?php echo $result[$i]['period']; ?>">
+</td>
+<td>
+<input type ="text" name ="teacher[]" value ="<?php echo $result[$i]['teacher']; ?>">
+</td>
+<td>
+<input type ="text" name ="subject[]" value ="<?php echo $result[$i]['subject']; ?>">
+</td>
+</tr>
+<?php } ?>
+
+<tr>
+<td>
+<input type ="text" name ="day[]">
+</td>
+<td>
+<input type ="text" name ="period[]">
+</td>
+<td>
+<input type ="text" name ="teacher[]">
+</td>
+<td>
+<input type ="text" name ="subject[]">
+</td>
+</tr>
+</table>
+<br>
+<input type ="button" onclick ="addRow(table1)" value ="Add Row">
+<input type ="button" onclick ="removeRow(table1)" value ="Remove Row">
+<input type ="submit" value ="Submit">
+</form>
+</body>
+</html>

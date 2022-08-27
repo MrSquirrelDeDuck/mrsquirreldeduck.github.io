@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>School Notification</title>
+@include('layouts.style')
+</head>
+<script type="text/javascript">
+  function getConfirmation(){
+   var retVal = confirm("Do you want to continue ?");
+   if( retVal == true ){
+      alert("User message: ");
+      return true;
+   }
+   else{
+      alert("User message: ");
+      return false;
+   }
+}
+</script>
+<body>
+
+<div class="container">
+  <h2>Notifications</h2>
+  <div class="panel-group" id="accordion">
+     @if(count($notifications)>0)
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">{{$notifications[0]->title}}</a>
+          <a href="{{url('/deleteNotifications/'.$notifications[0]->id)}}" class="btn btn-primary pull-right" onclick="return getConfirmation();">Delete</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">{{$notifications[0]->content}}</div>
+      </div>
+    </div>
+    @endif
+     @if(count($notifications)>1)
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">{{$notifications[1]->title}}</a>
+          <a href="{{url('/deleteNotifications/'.$notifications[1]->id)}}" class="btn btn-primary pull-right" onclick="return getConfirmation();">Delete</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">{{$notifications[1]->content}}</div>
+      </div>
+    </div>
+    @endif
+    @if(count($notifications)>2)
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">{{$notifications[2]->title}}</a>
+          <a href="{{url('/deleteNotifications/'.$notifications[2]->id)}}" class="btn btn-primary pull-right" onclick="return getConfirmation();">Delete</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">{{$notifications[2]->content}}</div>
+      </div>
+    </div>
+    @endif
+    @if(count($notifications)>3)
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">{{$notifications[3]->title}}</a>
+          <a href="{{url('/deleteNotifications/'.$notifications[3]->id)}}" class="btn btn-primary pull-right" onclick="return getConfirmation();">Delete</a>
+        </h4>
+      </div>
+      <div id="collapse4" class="panel-collapse collapse">
+        <div class="panel-body">{{$notifications[3]->content}}</div>
+      </div>
+    </div>
+    @endif
+    @if(count($notifications)>4)
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">{{$notifications[4]->title}}</a>
+          <a href="{{url('/deleteNotifications/'.$notifications[4]->id)}}" class="btn btn-primary pull-right" onclick="return getConfirmation();">Delete</a>
+        </h4>
+      </div>
+      <div id="collapse5" class="panel-collapse collapse">
+        <div class="panel-body">{{$notifications[4]->content}}</div>
+      </div>
+    </div>
+    @endif
+  </div>
+</div>
+<!--/.panel-->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Send Notification</h3>
+  </div>
+  <div class="panel-body">
+    <form role="form" method="post" action="{{url('/create-notifications')}}">
+      {{csrf_field()}}
+      <div class="form-group">
+        <label>Notification Name</label>
+        <input class="form-control" name="title" placeholder="Notification Name">
+      </div>
+      <div class="form-group">
+        <label>Notification Description</label>
+        <textarea class="form-control" name="content" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Notification Type</label>
+        <div class="checkbox">
+          <label><input type="checkbox" name="notify_type[]" value="android">Android</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="notify_type[]" value="ios">Ios</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-default">Send</button>
+    </form>
+  </div>
+</div>
+<!--/.panel-->
+</div>
+<!--/.col-->
+</div>
+<!--/.row-->
+</div>
+@endsection
+@section('script')
+
+@endsection
