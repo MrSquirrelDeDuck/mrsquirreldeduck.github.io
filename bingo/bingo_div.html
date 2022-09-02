@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AnarchyChess Discord Bingo</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="bingo.css">
+<link rel="icon" href="favicon.png">
+</head>
+<body onload="scriptLoad()";>
+<div id="table" style="border-spacing: 5px;">
+<div id="title-card"><div class="title-text center"><h1><b>B</b></h1></div><div class="title-text center"><h1><b>R</b></h1></div><div class="title-text center"><h1><b>E</b></h1></div><div class="title-text center"><h1><b>A</b></h1></div><div class="title-text center"><h1><b>D</b></h1></div>
+<div id="divr0"><div class="center board" id="divr0c0"><p id="#r0c0">#r0c0</p></div><div class="center board" id="divr0c1"><p id="#r0c1">#r0c1</p></div><div class="center board" id="divr0c2"><p id="#r0c2">#r0c2</p></div><div class="center board" id="divr0c3"><p id="#r0c3">#r0c3</p></div><div class="center board" id="divr0c4"><p id="#r0c4">#r0c4</p></div></div>
+<div id="divr1"><div class="center board" id="divr1c0"><p id="#r1c0">#r1c0</p></div><div class="center board" id="divr1c1"><p id="#r1c1">#r1c1</p></div><div class="center board" id="divr1c2"><p id="#r1c2">#r1c2</p></div><div class="center board" id="divr1c3"><p id="#r1c3">#r1c3</p></div><div class="center board" id="divr1c4"><p id="#r1c4">#r1c4</p></div></div>
+<div id="divr2"><div class="center board" id="divr2c0"><p id="#r2c0">#r2c0</p></div><div class="center board" id="divr2c1"><p id="#r2c1">#r2c1</p></div><div class="center board" id="divr2c2"><p id="#r2c2">#r2c2</p></div><div class="center board" id="divr2c3"><p id="#r2c3">#r2c3</p></div><div class="center board" id="divr2c4"><p id="#r2c4">#r2c4</p></div></div>
+<div id="divr3"><div class="center board" id="divr3c0"><p id="#r3c0">#r3c0</p></div><div class="center board" id="divr3c1"><p id="#r3c1">#r3c1</p></div><div class="center board" id="divr3c2"><p id="#r3c2">#r3c2</p></div><div class="center board" id="divr3c3"><p id="#r3c3">#r3c3</p></div><div class="center board" id="divr3c4"><p id="#r3c4">#r3c4</p></div></div>
+<div id="divr4"><div class="center board" id="divr4c0"><p id="#r4c0">#r4c0</p></div><div class="center board" id="divr4c1"><p id="#r4c1">#r4c1</p></div><div class="center board" id="divr4c2"><p id="#r4c2">#r4c2</p></div><div class="center board" id="divr4c3"><p id="#r4c3">#r4c3</p></div><div class="center board" id="divr4c4"><p id="#r4c4">#r4c4</p></div></div>
+<h5><b>If you complete an objective, ping me and I'll update it <u>as soon as I can.</u></b></h5>
+<h5><b>The board will update every day at Bread o' Clock.</b></h5>
+</div>
+</body>
+<script>
+function scriptLoad() {
+
+	const tileList = ["MoaK", "Someone gets a omega", "2 bricks from gambling within 4 gambles", "Kapola :despair: spam", "Pretzels suck, again", "Someone wins the lottery", "Gamble board with 1 or fewer positives", "$brick gamble", "someone uses the wrong channel", "Someone gets an anarchy gambling", "Gamble leads to 50/50 with at least 1 brick", "Natural Chessatron", "Someone fakes '$brick' message", "LD goes insane", "Kapola leaks something", "Capybara image <3", "'Oh, you can't do this to me' gif", "Golden brick", "RIGGED", "Kapola gets a lottery", "We have an event (Impossible)", "Accidental petrosian 'sus' trigger", "Daily rap lyrics", "Gambling leads to triple brick", "Somebody fakes a MoaK", "Bread game update", "MM chess en passant!!", "MM lags (pretty much free)", "Bongcloud in MM chess game", "Someone does $bread (move)", "Someone breaks MM", "Someone says 'Holy ____' and doesn't say 'holy hell'", "14+ roll"]
+	
+	let enabledCode = 0
+	let tileCode = "28111731030829322126201912132500040727140906153010"
+	
+	var times
+	for (let i = 0; i < 5; i++) {
+		for (let u = 0; u < 5; u++) {
+			temp_var = document.getElementById("#r" + i + "c" + u)
+			temp_var.innerHTML = tileList[parseInt(tileCode[(i*5 + u)*2] + tileCode[(i*5 + u)*2 + 1])]
+		}
+	}
+	const boardId = ["divr0c0", "divr0c1", "divr0c2", "divr0c3", "divr0c4", "divr1c0", "divr1c1", "divr1c2", "divr1c3", "divr1c4", "divr2c0", "divr2c1", "divr2c2", "divr2c3", "divr2c4", "divr3c0", "divr3c1", "divr3c2", "divr3c3", "divr3c4", "divr4c0", "divr4c1", "divr4c2", "divr4c3", "divr4c4"]
+	var tempCode = enabledCode
+	for (let j = 24; j >= 0; j--){
+		if (2 ** j <= tempCode){
+			document.getElementById(boardId[j]).style.backgroundColor = "yellow"
+			tempCode = tempCode - 2 ** j
+		}
+	}
+}
+</script>
+</html>
