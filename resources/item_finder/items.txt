@@ -5085,3 +5085,368 @@ Potted Crystal Tree
 Princess 64
 Painting of a Lass
 Dark Side of the Hallow
+Bernie's Button
+Glommer's Flower
+Deerclops Eyeball
+Monster Meat
+Monster Lasagna
+Froggle Bunwich
+Tentacle Spike
+Lucy the Axe
+Ham Bat
+Bat Bat
+Eye Bone
+Garland
+Bone Helm
+Eyebrella
+Gentleman's Vest
+Gentleman's Trousers
+Gentleman's Beard
+Gentleman's Long Beard
+Gentleman's Magnificent Beard
+Magiluminescence
+Deerclops Trophy
+Deerclops Mask
+Deerclops Relic
+Treasure Bag
+Music Box (Deerclops)
+Radio Thing
+Abigail's Flower
+Firestarter's Sweater
+Firestarter's Skirt
+Pew-matic Horn
+Weather Pain
+Houndius Shootius
+Deer Thing
+The Gentleman Scientist
+The Firestarter
+The Bereaved
+The Strongman
+Fart Kart
+Hand Of Creation
+Neon Moss
+Helium Moss
+Flymeal
+Lilith's Necklace
+Resplendent Dessert
+Stinkbug
+Stinkbug Cage
+Terraformer
+Venom Dart Trap
+Vulkelf Ears
+Stinkbug Blocker
+Ghostly Stinkbug Blocker
+Fishing Bobber
+Glowing Fishing Bobber
+Lava Moss Fishing Bobber
+Krypton Moss Fishing Bobber
+Xenon Moss Fishing Bobber
+Argon Moss Fishing Bobber
+Neon Moss Fishing Bobber
+Helium Moss Fishing Bobber
+Wand of Frosting
+Reef Bathtub
+Reef Bed
+Reef Bookcase
+Reef Dresser
+Reef Candelabra
+Reef Candle
+Reef Chair
+Reef Chandelier
+Reef Chest
+Reef Clock
+Reef Door
+Reef Lamp
+Reef Lantern
+Reef Piano
+Reef Platform
+Reef Sink
+Reef Sofa
+Reef Table
+Reef Work Bench
+Trapped Reef Chest
+Reef Toilet
+Balloon Bathtub
+Balloon Bed
+Balloon Bookcase
+Balloon Dresser
+Balloon Candelabra
+Balloon Candle
+Balloon Chair
+Balloon Chandelier
+Balloon Chest
+Balloon Clock
+Balloon Door
+Balloon Lamp
+Balloon Lantern
+Balloon Piano
+Balloon Platform
+Balloon Sink
+Balloon Sofa
+Balloon Table
+Balloon Work Bench
+Trapped Balloon Chest
+Balloon Toilet
+Ash Wood Bathtub
+Ash Wood Bed
+Ash Wood Bookcase
+Ash Wood Dresser
+Ash Wood Candelabra
+Ash Wood Candle
+Ash Wood Chair
+Ash Wood Chandelier
+Ash Wood Chest
+Ash Wood Clock
+Ash Wood Door
+Ash Wood Lamp
+Ash Wood Lantern
+Ash Wood Piano
+Ash Wood Platform
+Ash Wood Sink
+Ash Wood Sofa
+Ash Wood Table
+Ash Wood Work Bench
+Trapped Ash Wood Chest
+Ash Wood Toilet
+Biome Sight Potion
+Scarlet Macaw
+Scarlet Macaw Cage
+Ash Grass Seeds
+Ash Wood
+Ash Wood Wall
+Ash Wood Fence
+Outcast
+Fairy Guides
+A Horrible Night for Alchemy
+Morning Hunt
+Suspiciously Sparkly
+Requiem
+Cat Sword
+Kargoh's Summon
+High Pitch
+A Machine for Terrarians
+Terra Blade Chronicles
+Benny Warhol
+Lizard King
+My Son
+Duality
+Parsec Pals
+Remnants of Devotion
+Not So Lost In Paradise
+Ocular Resonance
+Wings of Evil
+Constellation
+Eyezorhead
+Dread of the Red Sea
+Do Not Eat the Vile Mushroom!
+Yuuma, The Blue Tiger
+Moonman & Company
+Sunshine of Israpony
+Purity
+Sufficiently Advanced
+Strange Growth
+Happy Little Tree
+Strange Dead Fellows
+Secrets
+Thunderbolt
+Crustography
+The Werewolf
+Blessing from the Heavens
+Love is in the Trash Slot
+Fangs
+Hail to the King
+See The World For What It Is
+What Lurks Below
+This Is Getting Out Of Hand
+Buddies
+Midnight Sun
+Couch Gag
+Silent Fish
+The Duke
+Royal Romance
+Bioluminescence
+Wildflowers
+Viking Voyage
+Bifrost
+Heartlands
+Forest Troll
+Aurora Borealis
+Lady Of The Lake
+Joja Cola
+Stardrop
+Spicy Pepper
+Pomegranate
+Ash Wood Helmet
+Ash Wood Breastplate
+Ash Wood Greaves
+Ash Wood Bow
+Ash Wood Hammer
+Ash Wood Sword
+Moon Globe
+Repaired Life Crystal
+Repaired Mana Crystal
+Terra Fart Kart
+Minecart Upgrade Kit
+Jim's Cap
+Echo Wall
+Echo Platform
+Mushroom Torch
+Hive-Five
+Axe of Regrowth
+Chlorophyte Extractinator
+Blue Chicken Egg
+Trimarang
+Mushroom Campfire
+Blue Macaw
+Blue Macaw Cage
+Bottomless Honey Bucket
+Honey Absorbant Sponge
+Ultra Absorbant Sponge
+Goblorc Ears
+Reef Block
+Reef Wall
+r/Terraria
+Guide to Environmental Preservation
+Princess Style
+Toucan
+Yellow Cockatiel
+Gray Cockatiel
+Toucan Cage
+Yellow Cockatiel Cage
+Gray Cockatiel Cage
+Macaw Statue
+Toucan Statue
+Cockatiel Statue
+Decorative Healing Potion
+Decorative Mana Potion
+Shadow Candle
+Guide to Peaceful Coexistence
+Rubblemaker (Small)
+Closed Void Bag
+Artisan Loaf
+TNT Barrel
+Chest Lock
+Rubblemaker (Medium)
+Rubblemaker (Large)
+Bundle of Horseshoe Balloons
+Spiffo Plush
+Glow Tulip
+Ocram's Razor
+Rod of Harmony
+Advanced Combat Techniques: Volume Two
+Vital Crystal
+Aegis Fruit
+Arcane Crystal
+Galaxy Pearl
+Gummy Worm
+Ambrosia
+Peddler's Satchel
+Echo Coating
+Echo Chamber
+Gas Trap
+Aether Monolith
+Shimmer Arrow
+Aetherium Block
+Faeling
+Faeling in a Bottle
+Shimmer Slime Banner
+Aether Torch
+Reflective Shades
+Chromatic Cloak
+Used Gas Trap
+Aether Campfire
+Shellphone (Home)
+Shellphone (Spawn)
+Shellphone (Ocean)
+Shellphone (Underworld)
+Music Box (Aether)
+Infested Spider Wall
+Bottomless Shimmer Bucket
+Cursed Blue Brick Wall
+Cursed Blue Slab Wall
+Cursed Blue Tiled Wall
+Cursed Pink Brick Wall
+Cursed Pink Slab Wall
+Cursed Pink Tiled Wall
+Cursed Green Brick Wall
+Cursed Green Slab Wall
+Cursed Green Tiled Wall
+Treacherous Sandstone Wall
+Treacherous Hardened Sand Wall
+Forbidden Lihzahrd Brick Wall
+Spelunker Flare
+Cursed Flare
+Rainbow Flare
+Shimmer Flare
+Enchanted Moondial
+Waffle's Iron
+Bouncy Boulder
+Life Crystal Boulder
+Dizzy's Rare Gecko Chester
+Raynebro's Hoodie
+Raynebro's Pants
+Eye of the Sun
+Cheesy Pizza Poster
+Raynebro's Hood
+Uncumbering Stone
+Yellow Solution
+White Solution
+Brown Solution
+Poo
+Poo Wall
+Aetherium Wall
+Aetherium Brick
+Aetherium Brick Wall
+The Dirtiest Block
+Lunar Rust Brick
+Dark Celestial Brick
+Astra Brick
+Cosmic Ember Brick
+Cryocore Brick
+Mercury Brick
+Star Royale Brick
+Heavenforge Brick
+Lunar Rust Brick Wall
+Dark Celestial Brick Wall
+Astra Brick Wall
+Cosmic Ember Brick Wall
+Cryocore Brick Wall
+Mercury Brick Wall
+Star Royale Brick Wall
+Heavenforge Brick Wall
+Ancient Blue Brick
+Ancient Blue Brick Wall
+Ancient Green Brick
+Ancient Green Brick Wall
+Ancient Pink Brick
+Ancient Pink Brick Wall
+Ancient Gold Brick
+Ancient Gold Brick Wall
+Ancient Silver Brick
+Ancient Silver Brick Wall
+Ancient Copper Brick
+Ancient Copper Brick Wall
+Ancient Cobalt Brick
+Ancient Cobalt Brick Wall
+Ancient Mythril Brick
+Ancient Mythril Brick Wall
+Ancient Obsidian Brick
+Ancient Obsidian Brick Wall
+Ancient Hellstone Brick
+Ancient Hellstone Brick Wall
+Shellphone
+Fertilizer
+Lava Moss Brick
+Argon Moss Brick
+Krypton Moss Brick
+Xenon Moss Brick
+Neon Moss Brick
+Helium Moss Brick
+Lava Moss Brick Wall
+Argon Moss Brick Wall
+Krypton Moss Brick Wall
+Xenon Moss Brick Wall
+Neon Moss Brick Wall
+Helium Moss Brick Wall
+Kwad Racer Drone
+FPV Goggles
