@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Gambling Simulator</title>
+<style>
+.board {
+	width: 50px;
+	height: 50px;
+	outline: 5px solid black;
+	margin-left: 20px;
+	float: left;
+}
+.section {
+	margin-top: 50px;
+}
+</style>
+</head>
+<button onclick="simulate()">Simulate</button>
+<p id=result>Text</p>
+<div class="section">
+<div id="tile0" class="board"></div><div id="tile1" class="board"></div><div id="tile2" class="board"></div><div id="tile3" class="board"></div><br></div>
+<div class="section">
+<div id="tile4" class="board"></div><div id="tile5" class="board"></div><div id="tile6" class="board"></div><div id="tile7" class="board"></div><br></div>
+<div class="section">
+<div id="tile8" class="board"></div><div id="tile9" class="board"></div><div id="tile10" class="board"></div><div id="tile11" class="board"></div><br></div>
+<div class="section">
+<div id="tile12" class="board"></div><div id="tile13" class="board"></div><div id="tile14" class="board"></div><div id="tile15" class="board"></div><br></div>
+<br><br>
+<p>
+	Red: brick <br>
+	Orange: horsey <br>
+	Yellow: cherry <br>
+	Green: bread <br>
+	Blue: special <br>
+	Purple: chess piece <br>
+	Pink: anarchy
+</p>
+</html>
+<script>
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+};
+
+function render(tiles) {
+	colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "black"]
+	for (let i = 0; i < 16; i++) {
+		document.getElementById("tile" + i).style.backgroundColor = colors[tiles[i]]
+	}
+};
+
+async function simulate() {
+	names = ["brick", "horsey", "cherry", "bread", "special", "chess piece", "anarchy"]
+	div_names = []
+	remove_key = [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 10, 11], [12, 13, 14, 15], [0, 4, 8, 12], [1, 5, 9, 13], [2, 6, 10, 14], [3, 7, 11, 15]]
+	for (let i = 0; i < 16; i++) {
+		div_names[i] = document.getElementById("tile" + i)
+	}
+	colors = ["red", "orange", "yellow", "green", "blue", "purple", "pink", "black"]
+	// document.getElementById(div_names[2]).style.backgroundColor = "#ff0000"
+	div_names[2].style.backgroundColor = colors[3]
+	weight = [4, 19, 26, 25, 15, 10, 1]
+	weight_add = []
+	for (let i = 0; i < 7; i++) {
+		for (let u = 0; u < weight[i]; u++) {
+			weight_add.push(i)
+		}
+	}
+	board = []
+	for (let i = 0; i < 16; i++) {
+		board.push(weight_add[getRandomInt(100)])
+	}
+	winning_x = getRandomInt(4)
+	winning_y = getRandomInt(4)
+	render(board)
+	remove_options = []
+	for (let i = 0; i < 4; i++) {
+		if (i != winning_x) {
+			remove_options.push(i)
+		}
+	}
+	for (let i = 0; i < 4; i++) {
+		if (i != winning_y) {
+			remove_options.push(i + 4)
+		}
+	}
+	for (let i = 0; i < 6; i++) {
+		await new Promise(resolve => setTimeout(resolve, 1000));
+		remove_chose = getRandomInt(remove_options.length)
+		board[remove_key[remove_options[remove_chose]][0]] = 7
+		board[remove_key[remove_options[remove_chose]][1]] = 7
+		board[remove_key[remove_options[remove_chose]][2]] = 7
+		board[remove_key[remove_options[remove_chose]][3]] = 7
+		remove_options.splice(remove_chose, 1)
+		render(board)
+	}
+	document.getElementById("result").innerHTML = "You got a " + names[board[winning_y + (winning_x * 4)]]
+};
+
+function simulate_times(times) {
+	for (let times_number = 0; times_number < 1000; times_number++) {
+		simulate()
+		document.getElementById("result").innerHTML = times_number
+		new Promise(resolve => setTimeout(resolve, 10));
+	}
+};
+</script>
