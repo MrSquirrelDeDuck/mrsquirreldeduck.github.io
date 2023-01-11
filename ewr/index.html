@@ -22,7 +22,6 @@
             }
             #title {
                 margin-top: 5%;
-                margin-bottom: 5%;
                 background-color: white;
                 border: black 5px solid;
                 text-align: center;
@@ -31,9 +30,38 @@
                 font-weight: 600;
             }
             button {
-                /* float: left; */
-                position: relative;
-                bottom: 650px;
+                /* position: relative; */
+                /* margin-bottom: 650px; */
+                margin-top:1%;
+                margin-left: 0.25%;
+                background-color: white;
+            }
+            button:hover {
+                background-color: lightgray;
+            }
+            button:active {
+                background-color: gray;
+            }
+            #labels {
+                height: 20px;
+                margin-bottom:20px;
+            }
+            #boxes {
+                float: left;
+                margin-left:0.5%;
+            }
+            .title {
+                background-color: white;
+                border: black 5px solid;
+                width:42.75%;
+                font-weight: 700;
+                text-align: center;
+                margin-left: 0.15%;
+            }
+            #buttons {
+                height:15px;
+                margin-bottom:5px;
+                padding-bottom:5px;
             }
         </style>
     </body>
@@ -41,9 +69,11 @@
         <div id="title">
             <h1>Ewr Xuogwe</h1>
         </div>
-        <textarea rows="30" cols="50" id="normal">The quick brown fox jumps over the lazy dog.</textarea>
-        <button onclick="encode()" id="encode">Encode</button><button onclick="decode()" id="decode">Decode</button>
-        <textarea rows="30" cols="50" id="ewr">Rgw pyuxj veiqb diz hynoa icwe rgw klmt sif.</textarea>
+        <div id="labels"><h3 style="float: left" class="title">Normal</h3><button onclick="encode()" id="encode">Encode</button><button onclick="decode()" id="decode">Decode</button><h3 style="float: right; margin-right:9px;" class="title">Ewr</h3></div>
+        <div id="boxes">
+            <textarea rows="30" cols="58" id="normal">The quick brown fox jumps over the lazy dog.</textarea>
+            <textarea rows="30" cols="58" id="ewr">Rgw pyuxj veiqb diz hynoa icwe rgw klmt sif.</textarea>
+        </div>
     </div>
 </html>
 <script>
