@@ -18,7 +18,7 @@
             }
             #main {
                 padding-left: 10%;
-                width: 66%;
+                width: 69%;
             }
             #title {
                 margin-top: 5%;
@@ -30,6 +30,11 @@
             h1 {
                 font-weight: 600;
             }
+            button {
+                /* float: left; */
+                position: relative;
+                bottom: 650px;
+            }
         </style>
     </body>
     <div id="main">
@@ -37,7 +42,7 @@
             <h1>Ewr Xuogwe</h1>
         </div>
         <textarea rows="30" cols="50" id="normal">The quick brown fox jumps over the lazy dog.</textarea>
-        <button onclick="decode()"><--</button><button onclick="encode()">--></button>
+        <button onclick="encode()" id="encode">Encode</button><button onclick="decode()" id="decode">Decode</button>
         <textarea rows="30" cols="50" id="ewr">Rgw pyuxj veiqb diz hynoa icwe rgw klmt sif.</textarea>
     </div>
 </html>
