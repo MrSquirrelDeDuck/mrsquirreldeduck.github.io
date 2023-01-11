@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <title>ewr</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body {
+                background-color: #aa1f30;
+            }
+            textarea {
+                border: black 5px solid;
+                resize: none;
+            }
+            button {
+                border: black 5px solid;
+            }
+            #main {
+                padding-left: 10%;
+                width: 66%;
+            }
+            #title {
+                margin-top: 5%;
+                margin-bottom: 5%;
+                background-color: white;
+                border: black 5px solid;
+                text-align: center;
+            }
+            h1 {
+                font-weight: 600;
+            }
+        </style>
+    </body>
+    <div id="main">
+        <div id="title">
+            <h1>Ewr Xuogwe</h1>
+        </div>
+        <textarea rows="10" cols="50" id="normal">The quick brown fox jumps over the lazy dog.</textarea>
+        <button onclick="decode()"><--</button><button onclick="encode()">--></button>
+        <textarea rows="10" cols="50" id="ewr">Rgw pyuxj veiqb diz hynoa icwe rgw klmt sif.</textarea>
+    </div>
+</html>
+<script>
+    function encode() {
+        text = document.getElementById("normal").value
+        let old_text = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let new_text = "lvxswdfguhjknbiopearycqztm0123456789LVXSWDFGUHJKNBIOPEARYCQZTM";
+        let text_copy = text.split("")
+        for (i = 0; i < text_copy.length; i++) {
+            if (old_text.includes(text_copy[i])) {
+                text_copy[i] = new_text[old_text.indexOf(text_copy[i])]
+            }
+        }
+        document.getElementById("ewr").value = text_copy.join("")
+    }
+
+    function decode() {
+        text = document.getElementById("ewr").value
+        let old_text = "lvxswdfguhjknbiopearycqztm0123456789LVXSWDFGUHJKNBIOPEARYCQZTM";
+        let new_text = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let text_copy = text.split("")
+        for (i = 0; i < text_copy.length; i++) {
+            if (old_text.includes(text_copy[i])) {
+                text_copy[i] = new_text[old_text.indexOf(text_copy[i])]
+            }
+        }
+        document.getElementById("normal").value = text_copy.join("")
+    }
+</script>
