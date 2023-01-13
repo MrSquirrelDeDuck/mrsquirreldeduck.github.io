@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <title>fdg</title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body {
+                background-color: #aa1f30;
+            }
+            textarea {
+                border: black 5px solid;
+                resize: none;
+            }
+            button {
+                border: black 5px solid;
+            }
+            #main {
+                padding-left: 10%;
+                width: 69%;
+            }
+            #title {
+                margin-top: 5%;
+                background-color: white;
+                border: black 5px solid;
+                text-align: center;
+            }
+            h1 {
+                font-weight: 600;
+            }
+            button {
+                /* position: relative; */
+                /* margin-bottom: 650px; */
+                margin-top:1%;
+                margin-left: 0.25%;
+                background-color: white;
+            }
+            button:hover {
+                background-color: lightgray;
+            }
+            button:active {
+                background-color: gray;
+            }
+            #labels {
+                height: 20px;
+                margin-bottom:20px;
+            }
+            #boxes {
+                float: left;
+                margin-left:0.5%;
+            }
+            .title {
+                background-color: white;
+                border: black 5px solid;
+                width:42.75%;
+                font-weight: 700;
+                text-align: center;
+                margin-left: 0.15%;
+            }
+            #buttons {
+                height:15px;
+                margin-bottom:5px;
+                padding-bottom:5px;
+            }
+        </style>
+    </body>
+    <div id="main">
+        <div id="title">
+            <h1>Fdg Ekpndf</h1>
+        </div>
+        <div id="labels"><h3 style="float: left" class="title">Normal</h3><button onclick="encode()" id="encode">Encode</button><button onclick="decode()" id="decode">Decode</button><h3 style="float: right; margin-right:9px;" class="title">Fdg</h3></div>
+        <div id="boxes">
+            <textarea rows="30" cols="58" id="normal">The quick brown fox jumps over the lazy dog.</textarea>
+            <textarea rows="30" cols="58" id="ewr">Gnd ajkei tflsy vlw mjupx lrdf gnd ozqh clb.</textarea>
+        </div>
+    </div>
+</html>
+<script>
+    function encode() {
+        text = document.getElementById("normal").value
+        let old_text = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let new_text = "ztecdvbnkmiouylpafxgjrswhqZTECDVBNKMIOUYLPAFXGJRSWHQ";
+        let text_copy = text.split("")
+        for (i = 0; i < text_copy.length; i++) {
+            if (old_text.includes(text_copy[i])) {
+                text_copy[i] = new_text[old_text.indexOf(text_copy[i])]
+            }
+        }
+        document.getElementById("ewr").value = text_copy.join("")
+    }
+
+    function decode() {
+        text = document.getElementById("ewr").value
+        let old_text = "ztecdvbnkmiouylpafxgjrswhqZTECDVBNKMIOUYLPAFXGJRSWHQ";
+        let new_text = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let text_copy = text.split("")
+        for (i = 0; i < text_copy.length; i++) {
+            if (old_text.includes(text_copy[i])) {
+                text_copy[i] = new_text[old_text.indexOf(text_copy[i])]
+            }
+        }
+        document.getElementById("normal").value = text_copy.join("")
+    }
+</script>
