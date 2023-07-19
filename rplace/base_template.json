@@ -1,0 +1,15 @@
+{
+  "contact": "r/AnarchyChess Official Discord Server",
+  "templates": [
+    {
+      "name": "Original plan",
+      "sources": [
+        "https://cdn.discordapp.com/attachments/1032117556154204180/1131356536954949702/small.png"
+      ],
+      "x": 128,
+      "y": 641
+    }
+  ],
+  "whitelist": [],
+  "blacklist": []
+}
