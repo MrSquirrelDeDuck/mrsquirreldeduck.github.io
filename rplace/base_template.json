@@ -6,10 +6,15 @@
       "sources": [
         "https://cdn.discordapp.com/attachments/1032117556154204180/1131356536954949702/small.png"
       ],
-      "x": 128,
-      "y": 641
+      "x": -371,
+      "y": 141
     }
   ],
-  "whitelist": [],
+  "whitelist": [
+    {
+      "name": "P3ACE",
+      "url": " https://charity.pxls.space/p3ace"
+    }
+  ],
   "blacklist": []
 }
