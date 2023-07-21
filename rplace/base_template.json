@@ -2,6 +2,22 @@
   "contact": "r/AnarchyChess Official Discord Server",
   "templates": [
     {
+      "name": "Ireland Knook ❤️",
+      "sources": [
+        "https://cdn.discordapp.com/attachments/1087842399721627729/1132056731371982939/image.png"
+      ],
+      "x": 819,
+      "y": 347
+    }
+  ],
+  "whitelist": [],
+  "blacklist": [],
+  "disabled_i_hope_this_will_work": [
+    {
+      "name": "P3ACE",
+      "url": " https://charity.pxls.space/p3ace"
+    },
+    {
       "name": "holy hell!",
       "sources": [
         "https://cdn.discordapp.com/attachments/1032117556154204180/1131682926136918117/bread.png"
@@ -41,21 +57,5 @@
       "x": 1286,
       "y": 813
     },
-    {
-      "name": "Ireland Knook ❤️",
-      "sources": [
-        "https://cdn.discordapp.com/attachments/1087842399721627729/1132056731371982939/image.png"
-      ],
-      "x": 819,
-      "y": 347
-    }
-  ],
-  "whitelist": [],
-  "blacklist": [],
-  "disabled_i_hope_this_will_work": [
-    {
-      "name": "P3ACE",
-      "url": " https://charity.pxls.space/p3ace"
-    }
   ]
 }
