@@ -12,10 +12,26 @@
     {
       "name": "Let's try again...",
       "sources": [
-        "https://cdn.discordapp.com/attachments/1032117556154204180/1131965573916536943/image.png"
+        "https://cdn.discordapp.com/attachments/1032117556154204180/1131956628997013634/Untitled.png"
       ],
       "x": 900,
       "y": 581
+    },
+    {
+      "name": "3rd time's the charm, right?",
+      "sources": [
+        "https://cdn.discordapp.com/attachments/1032117556154204180/1131978694890627324/image.png"
+      ],
+      "x": 857,
+      "y": 325
+    },
+    {
+      "name": "Expansion.",
+      "sources": [
+        "https://cdn.discordapp.com/attachments/1032117556154204180/1131982196329173063/eh.png"
+      ],
+      "x": 1359,
+      "y": 216
     }
   ],
   "whitelist": [],
