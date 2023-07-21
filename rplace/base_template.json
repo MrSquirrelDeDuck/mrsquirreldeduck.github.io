@@ -18,11 +18,13 @@
       "y": 581
     }
   ],
-  "whitelist": [
+  "whitelist": [],
+  "blacklist": [],
+  "disabled_i_hope_this_will_work": [
+    
     {
       "name": "P3ACE",
       "url": " https://charity.pxls.space/p3ace"
     }
-  ],
-  "blacklist": []
+  ]
 }
