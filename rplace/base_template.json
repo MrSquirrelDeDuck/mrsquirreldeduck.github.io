@@ -10,7 +10,12 @@
       "y": 347
     }
   ],
-  "whitelist": [],
+  "whitelist": [
+    {
+      "name": "Jet Lag: The Game",
+      "url": "https://files.catbox.moe/r615vi.json"
+    }
+  ],
   "blacklist": [],
   "disabled_i_hope_this_will_work": [
     {
