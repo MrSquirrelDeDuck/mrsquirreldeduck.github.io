@@ -24,6 +24,14 @@
       ],
       "x": 560,
       "y": 151
+    },
+    {
+      "name": "nice",
+      "sources": [
+        "https://cdn.discordapp.com/attachments/1087842399721627729/1132686582139330570/image.png"
+      ],
+      "x": 1712,
+      "y": 224
     }
   ],
   "whitelist": [
