@@ -18,11 +18,11 @@
       "y": 749
     },
     {
-      "name": "Maybe??",
+      "name": "<insert despair emoji>",
       "sources": [
-        "https://cdn.discordapp.com/attachments/1087842399721627729/1132478357423005806/image.png"
+        "https://cdn.discordapp.com/attachments/1087842399721627729/1132500868126748702/image.png"
       ],
-      "x": 521,
+      "x": 560,
       "y": 151
     }
   ],
@@ -77,6 +77,14 @@
       ],
       "x": 1286,
       "y": 813
+    },
+    {
+      "name": "Maybe??",
+      "sources": [
+        "https://cdn.discordapp.com/attachments/1087842399721627729/1132478357423005806/image.png"
+      ],
+      "x": 521,
+      "y": 151
     }
   ]
 }
