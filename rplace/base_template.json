@@ -12,7 +12,7 @@
     {
       "name": "Holy hell!",
       "sources": [
-        "https://cdn.discordapp.com/attachments/1032117556154204180/1132405691949252678/image.png"
+        "https://media.discordapp.net/attachments/1087842399721627729/1132862307635044422/image.png"
       ],
       "x": 1831,
       "y": 749
@@ -32,6 +32,22 @@
       ],
       "x": 1761,
       "y": 1790
+    },
+    {
+      "name": "ghomerl vs. cmauhin",
+      "sources": [
+        "https://cdn.discordapp.com/attachments/1087842399721627729/1132862307312091176/image.png"
+      ],
+      "x": 2206,
+      "y": 1867
+    },
+    {
+      "name": "Holy Hell!! indeed.",
+      "sources": [
+        "https://media.discordapp.net/attachments/1087842399721627729/1132862305923780608/image.png"
+      ],
+      "x": 1350,
+      "y": 1749
     }
   ],
   "whitelist": [
