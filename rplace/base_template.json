@@ -56,6 +56,14 @@
       ],
       "x": 1241,
       "y": 1292
+    },
+    {
+      "name": "you just lost the game",
+      "sources": [
+        "https://cdn.discordapp.com/attachments/1087842399721627729/1133146412247416962/image.png"
+      ],
+      "x": 2020,
+      "y": 316
     }
   ],
   "whitelist": [
