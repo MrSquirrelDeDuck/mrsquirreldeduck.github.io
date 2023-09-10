@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ewr</title>
+        <style>
+            body {
+                background-color: #aa1f30;
+                height: 95vh;
+            }
+            h1,h2 {
+                font-family: "Segoe UI",Arial,sans-serif;
+            }
+            .box {
+                background-color: white;
+                border: 5px solid black;
+                text-align: center;
+            }
+            textarea {
+                resize: none;
+                width: 100%;
+                height: 100%;
+                text-align: left !important;
+                font-family: "Segoe UI",Arial,sans-serif;
+            }
+            #main {
+                display: block;
+                height: 80%;
+            }
+            .input_box {
+                float:left;
+                width: 48%;
+                margin-top: 1%;
+                margin-bottom: 1%;
+                margin-left: 1%;
+                margin-right: 1%;
+                height: 100%;
+            }
+            .text_title {
+                width: 80%;
+            }
+            #ewr_title {    
+                float: right;
+            }
+            #normal_title {    
+                float: left;
+            }
+            #title_div{
+                height: 8%;
+                font-size: 2vmin;
+                text-align: center;
+            }
+            #main_title {
+                margin-top: 0.5%;
+            }
+            button:hover {
+                background-color: lightgray;
+            }
+            button:active {
+                background-color: gray;
+            }
+            button {
+                font-size: large;
+                height: 80px;
+                width: 15%;
+            }
+            #encode_button {
+                float: right;
+            }
+            #ewr_header {
+                padding-left: 1%;
+            }
+            @media all and (max-width: 1100px)
+            {
+                #normal_box {
+                    width: 97%;
+                }
+                #ewr_box {
+                    width: 97%;
+                    margin-top: 20%;
+                }
+                .text_title {
+                    width: 48%;
+                }
+                button {
+                    width: 48%;
+                }
+                #title_div{
+                    height: 8%;
+                    font-size: 2.75vmin;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="title_div" class="box">
+            <h1 id="main_title">Ewr Xuogwe</h1>
+        </div>
+        <div id="main">
+            <div id="normal_box" class="input_box">
+                <div id="ewr_header">
+                    <div id="normal_title" class="box text_title">
+                        <h2>Normal</h2>
+                    </div>
+                    <button class="box" onclick="encode()" id="encode_button">Encode</button>
+                </div>
+                <textarea id="normal_textarea" class="box">The quick brown fox jumps over the lazy dog.</textarea>
+            </div>
+            <div id="ewr_box" class="input_box">
+                <div id="ewr_header">
+                    <button class="box" onclick="decode()" id="decode_button">Decode</button>
+                    <div id="ewr_title" class="box text_title">
+                        <h2>Ewr</h2>
+                    </div>
+                </div>
+                <textarea id="ewr_textarea" class="box" cols="30" rows="10">Rgw pyuxj veiqb diz hynoa icwe rgw klmt sif.</textarea>
+            </div>
+        </div>
+    </body>
+</html>
+<script>
+    function encode() {
+        text = document.getElementById("normal_textarea").value
+        let old_text = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let new_text = "lvxswdfguhjknbiopearycqztm0123456789LVXSWDFGUHJKNBIOPEARYCQZTM";
+        let text_copy = text.split("")
+        for (i = 0; i < text_copy.length; i++) {
+            if (old_text.includes(text_copy[i])) {
+                text_copy[i] = new_text[old_text.indexOf(text_copy[i])]
+            }
+        }
+        document.getElementById("ewr_textarea").value = text_copy.join("")
+    }
+
+    function decode() {
+        text = document.getElementById("ewr_textarea").value
+        let old_text = "lvxswdfguhjknbiopearycqztm0123456789LVXSWDFGUHJKNBIOPEARYCQZTM";
+        let new_text = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let text_copy = text.split("")
+        for (i = 0; i < text_copy.length; i++) {
+            if (old_text.includes(text_copy[i])) {
+                text_copy[i] = new_text[old_text.indexOf(text_copy[i])]
+            }
+        }
+        document.getElementById("normal_textarea").value = text_copy.join("")
+    }
+</script>
