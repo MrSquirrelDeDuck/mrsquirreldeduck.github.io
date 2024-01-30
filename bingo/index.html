@@ -8,6 +8,19 @@
 <link rel="stylesheet" href="bingo.css">
 <link rel="icon" href="favicon.png">
 </head>
+<style>
+#overlay{
+    opacity:0.9;
+    background-color:#ccc;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+    text-align: center;
+}
+</style>
 <body onload="scriptLoad()";>
 <div id="table" style="border-spacing: 5px;">
 <div id="title-card"><div class="title-text center"><h1><b>B</b></h1></div><div class="title-text center"><h1><b>R</b></h1></div><div class="title-text center"><h1><b>E</b></h1></div><div class="title-text center"><h1><b>A</b></h1></div><div class="title-text center"><h1><b>D</b></h1></div>
@@ -18,6 +31,11 @@
 <div id="divr4"><div class="center board" id="divr4c0"><p id="#r4c0">#r4c0</p></div><div class="center board" id="divr4c1"><p id="#r4c1">#r4c1</p></div><div class="center board" id="divr4c2"><p id="#r4c2">#r4c2</p></div><div class="center board" id="divr4c3"><p id="#r4c3">#r4c3</p></div><div class="center board" id="divr4c4"><p id="#r4c4">#r4c4</p></div></div>
 	<h5><b>If you complete an objective, <u>reply to the message that completes it and ping me</u> and I'll update it <u>as soon as I can.</u></b></h5>
 <h5><b>All objectives must be completed after the board updates (5 minutes before Bread o' Clock.)</b></h5>
+</div>
+<div id="overlay">
+	<h1 style="padding-top:20%;"><b>This is outdated.</b></h1>
+	<p>The up to date version can be fetched via the <code>%board</code> command.</p>
+	<b><button onclick="document.getElementById('overlay').style.display='none';">Click to dismiss.</button></b>
 </div>
 </body>
 <script>
