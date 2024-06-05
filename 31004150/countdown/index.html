@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        p {
+            /* font-family: agency fb; */
+            font-family: Arial;
+            font-size: 500%;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <p><span id="turn">Turn 00</span><br><span id="countdown">undefined</span></p>
+    </body>
+</html>
+<script>
+    // Update the count down every 20th of a second
+    function get() {
+        var now = Date.now() / 1000 - (3600 * 4) + (3600 * 12);
+
+        turn = Math.floor(now / 86400) - 19874;
+
+        if (turn < 10) {
+            turn = "0".concat(turn.toString());
+        } else {
+            turn = turn.toString();
+        }
+        
+        goal = Math.ceil(now / 86400) * 86400;
+        left = goal - now;
+
+        hours = Math.floor(left / 3600);
+        minutes = Math.floor((left % 3600) / 60);
+        seconds = Math.floor((left % 3600) % 60);
+
+        if (hours < 10) {
+            hours = "0".concat(hours.toString());
+        } else {
+            hours = hours.toString();
+        }
+
+        if (minutes < 10) {
+            minutes = "0".concat(minutes.toString());
+        } else {
+            minutes = minutes.toString();
+        }
+
+        if (seconds < 10) {
+            seconds = "0".concat(seconds.toString());
+        } else {
+            seconds = seconds.toString();
+        }
+        
+        document.getElementById("turn").innerHTML = "Turn ".concat(turn);
+        document.getElementById("countdown").innerHTML = hours.concat(":", minutes, ":", seconds);
+    }
+    var x = setInterval(get, 50);
+    get()
+</script>
