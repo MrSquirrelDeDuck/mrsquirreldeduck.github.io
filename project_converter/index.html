@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project Converter</title>
+        <style>
+            body {
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            div {
+                text-align: center;
+            }
+            textarea {
+                width: 650px;
+                height: 175px;
+            }
+            #exportbutton {
+                width: 10%;
+                height: 50px;
+                font-size: xx-large;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div id="header">
+                <h1>How to use this thing:</h1>
+                <p>
+                    Each project is made up from a series of parts.<br>
+                    Each part has a few options for what can be chosen, and the code randomly<br>
+                    chooses one option from each part to make the full project text.<br><br>
+                    Each project also has options for the title and options for what message is sent when the project is completed.<br><br>
+                    For this website, put each option for each project part on a seperate line.<br>
+                    I recommend having at least 3 options for each part to make sure there's variety.<br>
+                    You can click the plus button to add another part to the project, and the minus button to delete the most recent part.<br>
+                    You can use <code>{cost}</code> to have it include the cost, <code>{reward}</code> for the reward, and <code>{values.&lt;item name&gt;.text}</code> for an item.<br>
+                    If there's anything else you need or have any questions, let Duck know.<br><br>
+                    When you're done scroll to the bottom of the page and click the "Export" button.<br>
+                    Then copy the generated text and send it to Duck along with an explanation of the cost and reward scheme.
+                </p>
+            </div>
+            <hr width='25%'>
+            <div id="all_options">
+                <div id="titlediv" class="partdiv">
+                    <h1>Title</h1>
+                    <textarea></textarea>
+                </div>
+                <div id="parts_list">
+                    <div id="part1div" class="partdiv">
+                        <h1>Part 1</h1>
+                        <textarea></textarea>
+                    </div>
+                </div>
+            </div>
+            <button onclick="addPart()">+</button>
+            <button onclick="removePart()">-</button>
+            <div id="completiondiv" class="partdiv">
+                <h1>Completion</h1>
+                <textarea></textarea>
+            </div>
+        </div>
+        <div>
+            <hr width='25%'>
+            <button id="exportbutton" onclick="exportProject()">Export</button><br><br>
+            <p id="errorlog" style="color: red"></p>
+            <p>Exported code:</p>
+            <textarea id="outputtextarea" readonly style="background-color: lightgray;"></textarea>
+        </div>
+        <br><br>
+    </body>
+</html>
+<script>
+function addPart() {
+    part_list = document.getElementById("parts_list");
+    children = part_list.children.length;
+    next_part = children + 1;
+    
+    new_element = document.createElement("div");
+    new_element_header = document.createElement("h1");
+    new_element_textarea = document.createElement("textarea");
+    
+    new_element.id = "part".concat(next_part, "div");
+    new_element.classList.add("partdiv");
+    
+    new_element_header.innerHTML = "Part ".concat(next_part);
+
+    new_element.appendChild(new_element_header);
+    new_element.appendChild(new_element_textarea);
+    
+    part_list.appendChild(new_element);
+}
+
+function removePart(){
+    part_list = document.getElementById("parts_list").children;
+    part_list[part_list.length - 1].remove();
+}
+
+function toTitleCase(str) {
+  return str.replace(
+    /\w\S*/g,
+    text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+  );
+}
+
+function exportProject() {
+    output = ""
+    title = document.getElementById("titlediv");
+    title_text = title.children[1].value.replace(/^\n+|\n+$/g, '').split("\n");
+    completion = document.getElementById("completiondiv");
+    completion_text = completion.children[1].value.replace(/^\n+|\n+$/g, '').split("\n");
+
+    parts_list = document.getElementById("parts_list").children;
+    part_count = parts_list.length;
+
+    part_str = [];
+    part_join_str = [];
+
+    for (var i = 0; i < parts_list.length; i++) {
+        part_text = parts_list[i].children[1].value.replace(/^\n+|\n+$/g, '').split("\n");
+        part_str.push("\n        part_".concat(i + 1, " = [\n            \"", part_text.join("\",\n            \""), "\"\n        ]\n"));
+        part_join_str.push("            rng.choice(part_".concat(i + 1, "),"));
+    }
+
+    class_title = toTitleCase(title_text[0]).replace(" ", "_");
+    output = "class ".concat(class_title, "(Project):\n    \"\"\"Written by ???.\"\"\"\n    internal = \"", class_title.toLowerCase(), "\"",
+        "\n\n    @classmethod\n    def name(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n         ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n\n        options = [",
+        "\n            \"", title_text.join("\",\n            \""), "\"\n        ]",
+        "\n\n\n        return rng.choice(options)\n\n    @classmethod\n    def description(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n\n        cost = cls.get_price_description(day_seed, system_tile)\n        reward = cls.get_reward_description(day_seed, system_tile)\n",
+        part_str.join("\n"),
+        "\n        return \" \".join([\n", part_join_str.join("\n"), "\n        ])",
+        "\n\n    @classmethod\n    def completion(\n            cls: typing.Type[typing.Self],\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n\n        options = [",
+        "\n            \"", completion_text.join("\",\n            \""), "\"",
+        "\n        ]\n\n        return rng.choice(options)\n    \n    @classmethod\n    def get_cost(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        return []\n    \n    @classmethod\n    def get_reward(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        return []"
+    ).replaceAll(/(\".+{.+}.+\")/g, "f$1");
+
+
+    output_obj = document.getElementById("outputtextarea");
+    output_obj.value = output;
+}
+</script>
