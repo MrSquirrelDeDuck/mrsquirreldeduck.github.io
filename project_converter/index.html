@@ -54,7 +54,7 @@
                 </div>
             </div>
             <button onclick="addPart()">+</button>
-            <button onclick="removePart()">-</button>
+            <button id="remove_part_button" disabled='disabled' onclick="removePart()">-</button>
             <div id="completiondiv" class="partdiv">
                 <h1>Completion</h1>
                 <textarea></textarea>
@@ -251,11 +251,26 @@ function addPart() {
     new_element.appendChild(new_element_textarea);
     
     part_list.appendChild(new_element);
+
+    if (part_list.children.length > 1) {
+        button = document.getElementById("remove_part_button");
+        button.disabled = false;
+    }
 }
 
 function removePart(){
     part_list = document.getElementById("parts_list").children;
+    
+    if (part_list.length <= 1) {
+        return;
+    }
+
     part_list[part_list.length - 1].remove();
+
+    if (part_list.length == 1) {
+        button = document.getElementById("remove_part_button");
+        button.disabled = true;
+    }
 }
 /////////////////////////////////////////////////////////////////////////////
 
@@ -375,10 +390,10 @@ function exportProject() {
                     variable_name = "amount_".concat(cost_variables.length + 1);
                     append =  variable_name.concat(" = rng.randint(", match[1], ", ", match[2], ")");
                     if (!cost_variable_ranges.includes(match[0])) {
-                        cost_variable_ranges.push(match[0])
+                        cost_variable_ranges.push(match[0]);
                         cost_variables.push(append);
                     } else {
-                        variable_name = "amount_".concat(cost_variable_ranges.indexOf(match[0]) + 1)
+                        variable_name = "amount_".concat(cost_variable_ranges.indexOf(match[0]) + 1);
                     }
 
                     equation = equation.replace(match[0], variable_name);
@@ -418,10 +433,10 @@ function exportProject() {
                     variable_name = "amount_".concat(reward_variables.length + 1);
                     append =  variable_name.concat(" = rng.randint(", match[1], ", ", match[2], ")");
                     if (!reward_variable_ranges.includes(match[0])) {
-                        reward_variable_ranges.push(match[0])
+                        reward_variable_ranges.push(match[0]);
                         reward_variables.push(append);
                     } else {
-                        variable_name = "amount_".concat(reward_variable_ranges.indexOf(match[0]) + 1)
+                        variable_name = "amount_".concat(reward_variable_ranges.indexOf(match[0]) + 1);
                     }
 
                     equation = equation.replace(match[0], variable_name);
