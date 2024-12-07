@@ -59,6 +59,168 @@
                 <h1>Completion</h1>
                 <textarea></textarea>
             </div>
+            <hr width='20%'>
+            <div id="cost">
+                <h2>Cost</h2>
+                <p>To specify a cost select the item/items in the dropdown menu and<br>
+                    type the cost equation in the text box. To use randomness, use <code>random(&lt;lower bound&gt;, &lt;upper bound&gt;)</code>.
+                </p>
+                <div id="cost_list">
+                    <div id="base_cost">
+                        <select>
+                            <option disabled="disabled">Multi-item options:</option>
+                            <option value="rng.choice(values.all_special_breads)">Random special bread</option>
+                            <option value="rng.choice(values.all_rare_breads)">Random rare bread</option>
+                            <option value="rng.choice(values.all_rare_breads + values.all_special_breads)">Random rare or special bread</option>
+                            <option value="rng.choice(values.chess_pieces_black)">Random black chess piece</option>
+                            <option value="rng.choice(values.chess_pieces_white)">Random white chess piece</option>
+                            <option value="rng.choice(values.chess_pieces_black_biased)">Random weighted black chess piece</option>
+                            <option value="rng.choice(values.chess_pieces_white_biased)">Random weighted white chess piece</option>
+                            <option value="rng.choice(values.all_chess_pieces)">Random chess piece</option>
+                            <option value="rng.choice(values.all_shinies)">Random gem</option>
+                            <option value="rng.choice(values.anarchy_pieces_black)">Random black anarchy piece</option>
+                            <option value="rng.choice(values.anarchy_pieces_white)">Random white anarchy piece</option>
+                            <option value="rng.choice(values.anarchy_pieces_black_biased)">Random weighted black anarchy piece</option>
+                            <option value="rng.choice(values.anarchy_pieces_white_biased)">Random weighted white anarchy piece</option>
+                            <option value="rng.choice(values.all_anarchy_pieces)">Random anarchy piece</option>
+                            <option value="rng.choice(values.all_one_of_a_kind)">Random OoaK</option>
+                            <option disabled="disabled">Corrupted and regular bread:</option>
+                            <option value="values.base_bread">Bread</option>
+                            <option value="values.corrupted_bread">Corrupted Bread</option>
+                            <option disabled="disabled">Special breads:</option>
+                            <option value="values.croissant">Croissant</option>
+                            <option value="values.flatbread">Flatbread</option>
+                            <option value="values.stuffed_flatbread">Stuffed Flatbread</option>
+                            <option value="values.sandwich">Sandwich</option>
+                            <option value="values.french_bread">Baguette</option>
+                            <option disabled="disabled">Rare breads:</option>
+                            <option value="values.waffle">Waffle</option>
+                            <option value="values.doughnut">Doughnut</option>
+                            <option value="values.bagel">Bagel</option>
+                            <option disabled="disabled">Black chess pieces:</option>
+                            <option value="values.black_pawn">Black pawn</option>
+                            <option value="values.black_knight">Black knight</option>
+                            <option value="values.black_bishop">Black bishop</option>
+                            <option value="values.black_rook">Black rook</option>
+                            <option value="values.black_queen">Black queen</option>
+                            <option value="values.black_king">Black king</option>
+                            <option disabled="disabled">White chess pieces:</option>
+                            <option value="values.white_pawn">White pawn</option>
+                            <option value="values.white_knight">White knight</option>
+                            <option value="values.white_bishop">White bishop</option>
+                            <option value="values.white_rook">White rook</option>
+                            <option value="values.white_queen">White queen</option>
+                            <option value="values.white_king">White king</option>
+                            <option disabled="disabled">Gems:</option>
+                            <option value="values.gem_red">Red gem</option>
+                            <option value="values.gem_blue">Blue gem</option>
+                            <option value="values.gem_purple">Purple gem</option>
+                            <option value="values.gem_green">Green gem</option>
+                            <option value="values.gem_gold">Gold gem</option>
+                            <option disabled="disabled">Misc. items:</option>
+                            <option value="values.chessatron">Chessatron</option>
+                            <option value="values.anarchy_chess">MoaK</option>
+                            <option value="values.omega_chessatron">Omega Chessatron</option>
+                            <option value="values.anarchy_chessatron">Anarchy Chessatron</option>
+                            <option value="values.anarchy_omega_chessatron">Anarchy Omega Chessatron</option>
+                            <option value="values.fuel">Fuel</option>
+                            <option disabled="disabled">Stonks:</option>
+                            <option value="values.pretzel">Pretzel</option>
+                            <option value="values.cookie">Cookie</option>
+                            <option value="values.fortune_cookie">Fortune Cookie</option>
+                            <option value="values.pancakes">Pancakes</option>
+                            <option disabled="disabled">OoaKs:</option>
+                            <option value="values.holy_hell">Holy Hell</option>
+                            <option value="values.anarchy">Anarchy</option>
+                            <option value="values.horsey">Horsey</option>
+                        </select>
+                        <input type="text">
+                    </div>
+                </div>
+                <button onclick="addCost()">+</button>
+                <button id="remove_cost_button" disabled="disabled" onclick="removeCost()">-</button>
+            </div>
+            <hr width='20%'>
+            <div id="reward">
+                <h2>Reward</h2>
+                <p>Specifying a reward is similar to the cost. However, if you use randomness in the reward it must have<br>
+                    the same upper and lower bounds as the cost. This makes sure the reward scales with the cost correctly.
+                </p>
+                <div id="reward_list">
+                    <div id="base_reward">
+                        <select>
+                            <option disabled="disabled">Multi-item options:</option>
+                            <option value="rng.choice(values.all_special_breads)">Random special bread</option>
+                            <option value="rng.choice(values.all_rare_breads)">Random rare bread</option>
+                            <option value="rng.choice(values.all_rare_breads + values.all_special_breads)">Random rare or special bread</option>
+                            <option value="rng.choice(values.chess_pieces_black)">Random black chess piece</option>
+                            <option value="rng.choice(values.chess_pieces_white)">Random white chess piece</option>
+                            <option value="rng.choice(values.chess_pieces_black_biased)">Random weighted black chess piece</option>
+                            <option value="rng.choice(values.chess_pieces_white_biased)">Random weighted white chess piece</option>
+                            <option value="rng.choice(values.all_chess_pieces)">Random chess piece</option>
+                            <option value="rng.choice(values.all_shinies)">Random gem</option>
+                            <option value="rng.choice(values.anarchy_pieces_black)">Random black anarchy piece</option>
+                            <option value="rng.choice(values.anarchy_pieces_white)">Random white anarchy piece</option>
+                            <option value="rng.choice(values.anarchy_pieces_black_biased)">Random weighted black anarchy piece</option>
+                            <option value="rng.choice(values.anarchy_pieces_white_biased)">Random weighted white anarchy piece</option>
+                            <option value="rng.choice(values.all_anarchy_pieces)">Random anarchy piece</option>
+                            <option value="rng.choice(values.all_one_of_a_kind)">Random OoaK</option>
+                            <option disabled="disabled">Corrupted and regular bread:</option>
+                            <option value="values.base_bread">Bread</option>
+                            <option value="values.corrupted_bread">Corrupted Bread</option>
+                            <option disabled="disabled">Special breads:</option>
+                            <option value="values.croissant">Croissant</option>
+                            <option value="values.flatbread">Flatbread</option>
+                            <option value="values.stuffed_flatbread">Stuffed Flatbread</option>
+                            <option value="values.sandwich">Sandwich</option>
+                            <option value="values.french_bread">Baguette</option>
+                            <option disabled="disabled">Rare breads:</option>
+                            <option value="values.waffle">Waffle</option>
+                            <option value="values.doughnut">Doughnut</option>
+                            <option value="values.bagel">Bagel</option>
+                            <option disabled="disabled">Black chess pieces:</option>
+                            <option value="values.black_pawn">Black pawn</option>
+                            <option value="values.black_knight">Black knight</option>
+                            <option value="values.black_bishop">Black bishop</option>
+                            <option value="values.black_rook">Black rook</option>
+                            <option value="values.black_queen">Black queen</option>
+                            <option value="values.black_king">Black king</option>
+                            <option disabled="disabled">White chess pieces:</option>
+                            <option value="values.white_pawn">White pawn</option>
+                            <option value="values.white_knight">White knight</option>
+                            <option value="values.white_bishop">White bishop</option>
+                            <option value="values.white_rook">White rook</option>
+                            <option value="values.white_queen">White queen</option>
+                            <option value="values.white_king">White king</option>
+                            <option disabled="disabled">Gems:</option>
+                            <option value="values.gem_red">Red gem</option>
+                            <option value="values.gem_blue">Blue gem</option>
+                            <option value="values.gem_purple">Purple gem</option>
+                            <option value="values.gem_green">Green gem</option>
+                            <option value="values.gem_gold">Gold gem</option>
+                            <option disabled="disabled">Misc. items:</option>
+                            <option value="values.chessatron">Chessatron</option>
+                            <option value="values.anarchy_chess">MoaK</option>
+                            <option value="values.omega_chessatron">Omega Chessatron</option>
+                            <option value="values.anarchy_chessatron">Anarchy Chessatron</option>
+                            <option value="values.anarchy_omega_chessatron">Anarchy Omega Chessatron</option>
+                            <option value="values.fuel">Fuel</option>
+                            <option disabled="disabled">Stonks:</option>
+                            <option value="values.pretzel">Pretzel</option>
+                            <option value="values.cookie">Cookie</option>
+                            <option value="values.fortune_cookie">Fortune Cookie</option>
+                            <option value="values.pancakes">Pancakes</option>
+                            <option disabled="disabled">OoaKs:</option>
+                            <option value="values.holy_hell">Holy Hell</option>
+                            <option value="values.anarchy">Anarchy</option>
+                            <option value="values.horsey">Horsey</option>
+                        </select>
+                        <input type="text">
+                    </div>
+                </div>
+                <button onclick="addReward()">+</button>
+                <button id="remove_reward_button" disabled="disabled" onclick="removeReward()">-</button>
+            </div>
         </div>
         <div>
             <hr width='25%'>
@@ -95,7 +257,73 @@ function removePart(){
     part_list = document.getElementById("parts_list").children;
     part_list[part_list.length - 1].remove();
 }
+/////////////////////////////////////////////////////////////////////////////
 
+function addCost() {
+    cost_list = document.getElementById("cost_list");
+    base_select = document.getElementById("base_cost");
+    new_select = base_select.cloneNode(true);
+    new_select.id = ""; // remove id so it doesnt cause issues
+    new_select.children[1].value = ""
+    cost_list.appendChild(new_select);
+
+    if (cost_list.children.length >= 2) {
+        button = document.getElementById("remove_cost_button");
+        button.disabled = false;
+    }
+}
+
+function removeCost() {
+    cost_list = document.getElementById("cost_list");
+    children = cost_list.children.length;
+    if (children <= 1) {
+        return;
+    }
+
+    // Remove it.
+    cost_list = cost_list.children;
+    cost_list[cost_list.length - 1].remove();
+
+    if (cost_list.length == 1) {
+        button = document.getElementById("remove_cost_button");
+        button.disabled = true;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+
+function addReward() {
+    reward_list = document.getElementById("reward_list");
+    base_select = document.getElementById("base_reward");
+    new_select = base_select.cloneNode(true);
+    new_select.id = ""; // remove id so it doesnt cause issues
+    new_select.children[1].value = ""
+    reward_list.appendChild(new_select);
+
+    if (reward_list.children.length >= 2) {
+        button = document.getElementById("remove_reward_button");
+        button.disabled = false;
+    }
+}
+
+function removeReward() {
+    reward_list = document.getElementById("reward_list");
+    children = reward_list.children.length;
+    if (children <= 1) {
+        return;
+    }
+
+    // Remove it.
+    reward_list = reward_list.children;
+    reward_list[reward_list.length - 1].remove();
+
+    if (reward_list.length == 1) {
+        button = document.getElementById("remove_reward_button");
+        button.disabled = true;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////
 function toTitleCase(str) {
   return str.replace(
     /\w\S*/g,
@@ -125,6 +353,92 @@ function exportProject() {
         part_str.push("\n        part_".concat(i + 1, " = [\n            \"", part_text.join("\",\n            \""), "\"\n        ]\n"));
         part_join_str.push("            rng.choice(part_".concat(i + 1, "),"));
     }
+    
+    //////////
+    // Cost //
+
+    cost_lines = [];
+    cost_variables = [];
+    cost_variable_ranges = [];
+
+    cost_list = document.getElementById("cost_list").children;
+    for (var i = 0; i < cost_list.length; i++) {
+        cost_div = cost_list[i];
+        item = cost_div.children[0].value;
+        equation = cost_div.children[1].value;
+
+        if (equation.includes("random")) {
+            regex = /random\((\d+), (\d+)\)/g;
+            do {
+                match = regex.exec(equation);
+                if (match) {
+                    variable_name = "amount_".concat(cost_variables.length + 1);
+                    append =  variable_name.concat(" = rng.randint(", match[1], ", ", match[2], ")");
+                    if (!cost_variable_ranges.includes(match[0])) {
+                        cost_variable_ranges.push(match[0])
+                        cost_variables.push(append);
+                    } else {
+                        variable_name = "amount_".concat(cost_variable_ranges.indexOf(match[0]) + 1)
+                    }
+
+                    equation = equation.replace(match[0], variable_name);
+                }
+            } while (match);
+        }
+
+        cost_lines.push("(".concat(item, ".text, ", equation, ")"));
+    }
+
+    if (cost_variables.length > 0) {
+        cost_variable_line = "\n        ".concat(cost_variables.join("\n        "), '\n');
+    } else {
+        cost_variable_line = "";
+    }
+
+    //////////
+    
+    ////////////
+    // Reward //
+
+    reward_lines = [];
+    reward_variables = [];
+    reward_variable_ranges = [];
+
+    reward_list = document.getElementById("reward_list").children;
+    for (var i = 0; i < reward_list.length; i++) {
+        reward_div = reward_list[i];
+        item = reward_div.children[0].value;
+        equation = reward_div.children[1].value;
+
+        if (equation.includes("random")) {
+            regex = /random\((\d+), (\d+)\)/g;
+            do {
+                match = regex.exec(equation);
+                if (match) {
+                    variable_name = "amount_".concat(reward_variables.length + 1);
+                    append =  variable_name.concat(" = rng.randint(", match[1], ", ", match[2], ")");
+                    if (!reward_variable_ranges.includes(match[0])) {
+                        reward_variable_ranges.push(match[0])
+                        reward_variables.push(append);
+                    } else {
+                        variable_name = "amount_".concat(reward_variable_ranges.indexOf(match[0]) + 1)
+                    }
+
+                    equation = equation.replace(match[0], variable_name);
+                }
+            } while (match);
+        }
+
+        reward_lines.push("(".concat(item, ".text, ", equation, ")"));
+    }
+
+    if (reward_variables.length > 0) {
+        reward_variable_line = "\n        ".concat(reward_variables.join("\n        "), '\n');
+    } else {
+        reward_variable_line = "";
+    }
+
+    ////////////
 
     class_title = toTitleCase(title_text[0]).trim().replaceAll(" ", "_");
     output = "class ".concat(class_title, "(Project):\n    \"\"\"Written by ", username, ".\"\"\"\n    internal = \"", class_title.toLowerCase(), "\"",
@@ -133,13 +447,20 @@ function exportProject() {
         "\n\n\n        return rng.choice(options)\n\n    @classmethod\n    def description(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n\n        cost = cls.get_price_description(day_seed, system_tile)\n        reward = cls.get_reward_description(day_seed, system_tile)\n",
         part_str.join("\n"),
         "\n        return \" \".join([\n", part_join_str.join("\n"), "\n        ])",
-        "\n\n    @classmethod\n    def completion(\n            cls: typing.Type[typing.Self],\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n\n        options = [",
+        "\n\n    @classmethod\n    def completion(\n            cls: typing.Type[typing.Self],\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n        reward = cls.get_reward_description(day_seed, system_tile)\n\n        options = [",
         "\n            \"", completion_text.join("\",\n            \""), "\"",
-        "\n        ]\n\n        return rng.choice(options)\n    \n    @classmethod\n    def get_cost(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        return []\n    \n    @classmethod\n    def get_reward(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        return []"
+        "\n        ]\n\n        return rng.choice(options)\n    \n    @classmethod\n    def get_cost(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n",
+        cost_variable_line,
+        "\n        return [\n            ", cost_lines.join(",\n            "),
+        "\n        ]\n    \n    @classmethod\n    def get_reward(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n",
+        reward_variable_line,
+        "\n        return [\n            ", reward_lines.join(",\n            "), "\n        ]"
     ).replaceAll(/(\".+{.+}.+\")/g, "f$1");
 
 
     output_obj = document.getElementById("outputtextarea");
     output_obj.value = output;
+
+    return "the j";
 }
 </script>
