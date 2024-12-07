@@ -40,6 +40,8 @@
             </div>
             <hr width='25%'>
             <div id="all_options">
+                <h3>Your username:</h3>
+                <input id="name" type="text">
                 <div id="titlediv" class="partdiv">
                     <h1>Title</h1>
                     <textarea></textarea>
@@ -103,10 +105,14 @@ function toTitleCase(str) {
 
 function exportProject() {
     output = ""
+
+    username_element = document.getElementById("name");
+    username = username_element.value
+
     title = document.getElementById("titlediv");
-    title_text = title.children[1].value.replace(/^\n+|\n+$/g, '').split("\n");
+    title_text = title.children[1].value.replaceAll(/^\n+|\n+$/g, '').split("\n");
     completion = document.getElementById("completiondiv");
-    completion_text = completion.children[1].value.replace(/^\n+|\n+$/g, '').split("\n");
+    completion_text = completion.children[1].value.replaceAll(/^\n+|\n+$/g, '').split("\n");
 
     parts_list = document.getElementById("parts_list").children;
     part_count = parts_list.length;
@@ -115,13 +121,13 @@ function exportProject() {
     part_join_str = [];
 
     for (var i = 0; i < parts_list.length; i++) {
-        part_text = parts_list[i].children[1].value.replace(/^\n+|\n+$/g, '').split("\n");
+        part_text = parts_list[i].children[1].value.replaceAll(/^\n+|\n+$/g, '').split("\n");
         part_str.push("\n        part_".concat(i + 1, " = [\n            \"", part_text.join("\",\n            \""), "\"\n        ]\n"));
         part_join_str.push("            rng.choice(part_".concat(i + 1, "),"));
     }
 
-    class_title = toTitleCase(title_text[0]).replace(" ", "_");
-    output = "class ".concat(class_title, "(Project):\n    \"\"\"Written by ???.\"\"\"\n    internal = \"", class_title.toLowerCase(), "\"",
+    class_title = toTitleCase(title_text[0]).trim().replaceAll(" ", "_");
+    output = "class ".concat(class_title, "(Project):\n    \"\"\"Written by ", username, ".\"\"\"\n    internal = \"", class_title.toLowerCase(), "\"",
         "\n\n    @classmethod\n    def name(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n         ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n\n        options = [",
         "\n            \"", title_text.join("\",\n            \""), "\"\n        ]",
         "\n\n\n        return rng.choice(options)\n\n    @classmethod\n    def description(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n\n        cost = cls.get_price_description(day_seed, system_tile)\n        reward = cls.get_reward_description(day_seed, system_tile)\n",
