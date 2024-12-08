@@ -8,6 +8,7 @@
             }
             div {
                 text-align: center;
+                align-items: center;
             }
             textarea {
                 width: 650px;
@@ -224,10 +225,19 @@
         </div>
         <div>
             <hr width='25%'>
+            <h1>Preview</h1>
+            <p>This will randomly choose parts and put them together to give an example of what it might look like.<br>
+            It will not handle things like formatting and emojis, however.</p>
+            <button onclick="generatePreview()">Generate preview</button><br>
+            <textarea id="preview_output" readonly selected style="background-color: white; border: 1px gray solid; resize: none;"></textarea>
+        </div>
+        <div>
+            <hr width='25%'>
             <button id="exportbutton" onclick="exportProject()">Export</button><br><br>
             <p id="errorlog" style="color: red"></p>
             <p>Exported code:</p>
             <textarea id="outputtextarea" readonly style="background-color: lightgray;"></textarea>
+            <br><button id="copy_button" onclick="copyOutput()">Copy</button>
         </div>
         <br><br>
     </body>
@@ -477,5 +487,35 @@ function exportProject() {
     output_obj.value = output;
 
     return "the j";
+}
+
+function copyOutput() {
+    output_obj = document.getElementById("outputtextarea");
+    navigator.clipboard.writeText(output_obj.value);
+
+    button = document.getElementById("copy_button")
+    button.animate(
+        {
+        backgroundColor: ['green', 'white'],
+        },
+        {duration: 250}
+    );
+}
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function generatePreview() {
+    output_list = [];
+
+    parts_list = document.getElementById("parts_list").children;
+    for (var i = 0; i < parts_list.length; i++) {
+        part_text = parts_list[i].children[1].value.replaceAll(/^\n+|\n+$/g, '').split("\n");
+        output_list.push(part_text[getRandomNumber(0, part_text.length)]);
+    }
+
+    output_obj = document.getElementById("preview_output");
+    output_obj.value = output_list.join(" ");
 }
 </script>
