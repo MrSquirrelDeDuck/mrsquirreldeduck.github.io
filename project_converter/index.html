@@ -363,9 +363,9 @@ function exportProject() {
     username = username_element.value
 
     title = document.getElementById("titlediv");
-    title_text = title.children[1].value.replaceAll(/^\n+|\n+$/g, '').split("\n");
+    title_text = title.children[1].value.replaceAll(/^\n+|\n+$/g, '').replaceAll('"', '\\"').split("\n");
     completion = document.getElementById("completiondiv");
-    completion_text = completion.children[1].value.replaceAll(/^\n+|\n+$/g, '').split("\n");
+    completion_text = completion.children[1].value.replaceAll(/^\n+|\n+$/g, '').replaceAll('"', '\\"').split("\n");
 
     parts_list = document.getElementById("parts_list").children;
     part_count = parts_list.length;
@@ -374,7 +374,7 @@ function exportProject() {
     part_join_str = [];
 
     for (var i = 0; i < parts_list.length; i++) {
-        part_text = parts_list[i].children[1].value.replaceAll(/^\n+|\n+$/g, '').split("\n");
+        part_text = parts_list[i].children[1].value.replaceAll(/^\n+|\n+$/g, '').replaceAll('"', '\\"').split("\n");
         part_str.push("\n        part_".concat(i + 1, " = [\n            \"", part_text.join("\",\n            \""), "\"\n        ]\n"));
         part_join_str.push("            rng.choice(part_".concat(i + 1, "),"));
     }
@@ -480,7 +480,7 @@ function exportProject() {
         "\n        ]\n    \n    @classmethod\n    def get_reward(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n",
         reward_variable_line,
         "\n        return [\n            ", reward_lines.join(",\n            "), "\n        ]"
-    ).replaceAll(/(\".+{.+}.+\")/g, "f$1");
+    ).replaceAll(/(\".*{.+}.*\")/g, "f$1");
 
 
     output_obj = document.getElementById("outputtextarea");
