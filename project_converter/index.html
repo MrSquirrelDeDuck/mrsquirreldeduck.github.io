@@ -80,7 +80,9 @@
                             <option value="rng.choice(values.chess_pieces_black_biased)">Random weighted black chess piece</option>
                             <option value="rng.choice(values.chess_pieces_white_biased)">Random weighted white chess piece</option>
                             <option value="rng.choice(values.all_chess_pieces)">Random chess piece</option>
-                            <option value="rng.choice(values.all_shinies)">Random gem</option>
+                            <option value="rng.choice(values.all_shinies)">Random regular gem</option>
+                            <option value="rng.choice(values.all_very_shinies)">Random space gem</option>
+                            <option value="rng.choice(values.overall_all_shinies)">Random gem</option>
                             <option value="rng.choice(values.anarchy_pieces_black)">Random black anarchy piece</option>
                             <option value="rng.choice(values.anarchy_pieces_white)">Random white anarchy piece</option>
                             <option value="rng.choice(values.anarchy_pieces_black_biased)">Random weighted black anarchy piece</option>
@@ -120,6 +122,10 @@
                             <option value="values.gem_purple">Purple gem</option>
                             <option value="values.gem_green">Green gem</option>
                             <option value="values.gem_gold">Gold gem</option>
+                            <option value="values.gem_pink">Pink gem</option>
+                            <option value="values.gem_orange">Orange gem</option>
+                            <option value="values.gem_cyan">Cyan gem</option>
+                            <option value="values.gem_white">White gem</option>
                             <option disabled="disabled">Misc. items:</option>
                             <option value="values.chessatron">Chessatron</option>
                             <option value="values.anarchy_chess">MoaK</option>
@@ -127,6 +133,7 @@
                             <option value="values.anarchy_chessatron">Anarchy Chessatron</option>
                             <option value="values.anarchy_omega_chessatron">Anarchy Omega Chessatron</option>
                             <option value="values.fuel">Fuel</option>
+                            <option value="values.hotdog">Hotdog</option>
                             <option disabled="disabled">Stonks:</option>
                             <option value="values.pretzel">Pretzel</option>
                             <option value="values.cookie">Cookie</option>
@@ -162,7 +169,9 @@
                             <option value="rng.choice(values.chess_pieces_black_biased)">Random weighted black chess piece</option>
                             <option value="rng.choice(values.chess_pieces_white_biased)">Random weighted white chess piece</option>
                             <option value="rng.choice(values.all_chess_pieces)">Random chess piece</option>
-                            <option value="rng.choice(values.all_shinies)">Random gem</option>
+                            <option value="rng.choice(values.all_shinies)">Random regular gem</option>
+                            <option value="rng.choice(values.all_very_shinies)">Random space gem</option>
+                            <option value="rng.choice(values.overall_all_shinies)">Random gem</option>
                             <option value="rng.choice(values.anarchy_pieces_black)">Random black anarchy piece</option>
                             <option value="rng.choice(values.anarchy_pieces_white)">Random white anarchy piece</option>
                             <option value="rng.choice(values.anarchy_pieces_black_biased)">Random weighted black anarchy piece</option>
@@ -202,6 +211,10 @@
                             <option value="values.gem_purple">Purple gem</option>
                             <option value="values.gem_green">Green gem</option>
                             <option value="values.gem_gold">Gold gem</option>
+                            <option value="values.gem_pink">Pink gem</option>
+                            <option value="values.gem_orange">Orange gem</option>
+                            <option value="values.gem_cyan">Cyan gem</option>
+                            <option value="values.gem_white">White gem</option>
                             <option disabled="disabled">Misc. items:</option>
                             <option value="values.chessatron">Chessatron</option>
                             <option value="values.anarchy_chess">MoaK</option>
@@ -209,6 +222,7 @@
                             <option value="values.anarchy_chessatron">Anarchy Chessatron</option>
                             <option value="values.anarchy_omega_chessatron">Anarchy Omega Chessatron</option>
                             <option value="values.fuel">Fuel</option>
+                            <option value="values.hotdog">Hotdog</option>
                             <option disabled="disabled">Stonks:</option>
                             <option value="values.pretzel">Pretzel</option>
                             <option value="values.cookie">Cookie</option>
@@ -470,17 +484,17 @@ function exportProject() {
 
     class_title = toTitleCase(title_text[0]).trim().replaceAll(" ", "_");
     output = "class ".concat(class_title, "(Project):\n    \"\"\"Written by ", username, ".\"\"\"\n    internal = \"", class_title.toLowerCase(), "\"",
-        "\n\n    @classmethod\n    def name(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n         ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n\n        options = [",
+        "\n\n    @classmethod\n    def name(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n         ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed(), \"name\"))\n\n        options = [",
         "\n            \"", title_text.join("\",\n            \""), "\"\n        ]",
-        "\n\n\n        return rng.choice(options)\n\n    @classmethod\n    def description(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n\n        cost = cls.get_price_description(day_seed, system_tile)\n        reward = cls.get_reward_description(day_seed, system_tile)\n",
+        "\n\n\n        return rng.choice(options)\n\n    @classmethod\n    def description(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed(), \"description\"))\n\n        cost = cls.get_price_description(day_seed, system_tile)\n        reward = cls.get_reward_description(day_seed, system_tile)\n",
         part_str.join("\n"),
         "\n        return \" \".join([\n", part_join_str.join("\n"), "\n        ])",
-        "\n\n    @classmethod\n    def completion(\n            cls: typing.Type[typing.Self],\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n        reward = cls.get_reward_description(day_seed, system_tile)\n\n        options = [",
+        "\n\n    @classmethod\n    def completion(\n            cls: typing.Type[typing.Self],\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> str:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed(), \"completion\"))\n        reward = cls.get_reward_description(day_seed, system_tile)\n\n        options = [",
         "\n            \"", completion_text.join("\",\n            \""), "\"",
-        "\n        ]\n\n        return rng.choice(options)\n    \n    @classmethod\n    def get_cost(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n",
+        "\n        ]\n\n        return rng.choice(options)\n    \n    @classmethod\n    def get_cost(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed(), \"items\"))\n",
         cost_variable_line,
         "\n        return [\n            ", cost_lines.join(",\n            "),
-        "\n        ]\n    \n    @classmethod\n    def get_reward(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed()))\n",
+        "\n        ]\n    \n    @classmethod\n    def get_reward(\n            cls,\n            day_seed: str,\n            system_tile: space.SystemTradeHub\n        ) -> list[tuple[str, int]]:\n        rng = random.Random(utility.hash_args(day_seed, system_tile.tile_seed(), \"items\"))\n",
         reward_variable_line,
         "\n        return [\n            ", reward_lines.join(",\n            "), "\n        ]"
     ).replaceAll(/(\".*{.+}.*\")/g, "f$1");
