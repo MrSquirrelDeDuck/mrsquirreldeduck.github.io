@@ -57,6 +57,12 @@
             </div>
             <button onclick="addPart()">+</button>
             <button id="remove_part_button" disabled='disabled' onclick="removePart()">-</button>
+            <br>
+            <br>
+            <button onclick="findStats()">Find stats</button>
+            <p id="comboStats">Longest part combination: 0 characters.
+            <br>Shortest part combination: 0 characters.
+            <br>Average part combination: 0 characters.</p>
             <div id="completiondiv" class="partdiv">
                 <h1>Completion</h1>
                 <textarea></textarea>
@@ -247,6 +253,7 @@
             It will not handle things like formatting and emojis, however.</p>
             <button onclick="generatePreview()">Generate preview</button><br>
             <textarea id="preview_output" readonly selected style="background-color: white; border: 1px gray solid; resize: none;"></textarea>
+            <p id="previewLength">Preview length: 0 characters.</p>
         </div>
         <div>
             <hr width='25%'>
@@ -546,11 +553,21 @@ function generatePreview() {
     parts_list = document.getElementById("parts_list").children;
     for (var i = 0; i < parts_list.length; i++) {
         part_text = parts_list[i].children[1].value.replaceAll(/^\n+|\n+$/g, '').split("\n");
-        output_list.push(part_text[getRandomNumber(0, part_text.length)]);
+        append = part_text[getRandomNumber(0, part_text.length)];
+        
+        // All newlines in this are \\n, so replace them with \n so the newlines will work.
+        append = append.replaceAll("\\n", "\n");
+
+        output_list.push(append);
     }
 
+    generated = output_list.join(" ");
+
     output_obj = document.getElementById("preview_output");
-    output_obj.value = output_list.join(" ");
+    output_obj.value = generated;
+
+    previewLength = document.getElementById("previewLength");
+    previewLength.innerHTML = "Preview length: ".concat(generated.length.toLocaleString(), " character", (generated.length == 1 ? "" : "s"), ".");
 }
 
 // Function to download data to a file
@@ -751,6 +768,52 @@ function loadFile() {
 
         // Update the output.
         output.innerHTML = "Project loaded successfully.";
+
+        // Find stats, because why not?
+        findStats();
     });
+}
+
+function findStats() {
+    parts_list = document.getElementById("parts_list").children;
+    part_count = parts_list.length;
+
+    longest = 0;
+    shortest = 0;
+    average = 0;
+
+    for (var i = 0; i < parts_list.length; i++) {
+        partLongest = 0;
+        partShortest = 0;
+        lengths = [];
+        part_text = parts_list[i].children[1].value.replaceAll(/^\n+|\n+$/g, '').split("\n");
+
+        for (var j = 0; j < part_text.length; j++) {
+            console.log("Considering: ", part_text[j]);
+            if (part_text[j].length > partLongest) {
+                partLongest = part_text[j].length;
+            }
+
+            if (part_text[j].length < partShortest || partShortest == 0) {
+                partShortest = part_text[j].length;
+            }
+
+            lengths.push(part_text[j].length);
+        }
+
+        longest += partLongest;
+        shortest += partShortest;
+        average += lengths.reduce((a, b) => a + b, 0) / lengths.length;
+    }
+
+    average += part_count - 1; // Add the number of parts to account for the added spaces, but subtract 1 since the last one doesn't have a space.
+
+    comboStats = document.getElementById("comboStats");
+    
+    comboStats.innerHTML = "Longest part combination: ".concat(
+        longest.toLocaleString(), " character", (longest == 1 ? "" : "s"),
+        ".<br>Shortest part combination: ".concat(shortest.toLocaleString(), " character", (shortest == 1 ? "" : "s"),
+        ".<br>Average part combination: ".concat(average.toFixed(2).toLocaleString(), " character", (average == 1 ? "" : "s"), "."))
+    );
 }
 </script>
