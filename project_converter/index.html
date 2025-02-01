@@ -256,6 +256,23 @@
             <textarea id="outputtextarea" readonly style="background-color: lightgray;"></textarea>
             <br><button id="copy_button" onclick="copyOutput()">Copy</button>
         </div>
+        <div>
+            <hr width="25%">
+            <h1>Saving and loading</h1>
+            <!-- ------- -->
+            <p>This will save the current text to a json file.<br>
+            This file can then be loaded at a later date.<br>
+            This will not save the preview or exported code.</p>
+            <button onclick="saveFile()">Save to file</button>
+            <!-- ------- -->
+            <hr width="10%">
+            <p>This will load an existing json file into the above text boxes.<br>
+            This <b>will</b> overwrite existing text, so make sure you save what you currently have before loading.
+            </p>
+            <input type="file" id="load_element"><br>
+            <button onclick="loadFile()">Load from file</button>
+            <p id="loadFileOutput"></p>
+        </div>
         <br><br>
     </body>
 </html>
@@ -534,5 +551,206 @@ function generatePreview() {
 
     output_obj = document.getElementById("preview_output");
     output_obj.value = output_list.join(" ");
+}
+
+// Function to download data to a file
+// Sourced from https://stackoverflow.com/questions/13405129/create-and-save-a-file-with-javascript#30832210
+function download(data, filename, type) {
+    var file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0); 
+    }
+}
+
+function saveFile() {
+    outputData = {
+        "name": document.getElementById("name").value,
+        "title": document.getElementById("titlediv").children[1].value,
+        "parts": [],
+        "completion": document.getElementById("completiondiv").children[1].value,
+        "cost": [],
+        "reward": []
+    };
+
+    titleDiv = document.getElementById("titlediv");
+    titleText = titleDiv.children[1].value.replaceAll(/^\n+|\n+$/g, '').replaceAll('"', '\\"').split("\n");
+    fileName = toTitleCase(titleText[0]).trim().replaceAll(" ", "_");
+    fileName = fileName.concat("_project.json")
+    
+    // Parts
+    partsList = document.getElementById("parts_list").children;
+    partText = [];
+    for (var i = 0; i < partsList.length; i++) {
+        partText.push(partsList[i].children[1].value);
+    }
+    outputData["parts"] = partText;
+
+    // Cost
+    costList = document.getElementById("cost_list").children;
+    costText = [];
+    for (var i = 0; i < costList.length; i++) {
+        console.log(i);
+        append = {
+            "item": costList[i].children[0].value,
+            "scheme": costList[i].children[1].value
+        }
+        costText.push(append);
+    }
+    outputData["cost"] = costText;
+
+    // Reward
+    rewardList = document.getElementById("reward_list").children;
+    rewardText = [];
+    for (var i = 0; i < rewardList.length; i++) {
+        append = {
+            "item": rewardList[i].children[0].value,
+            "scheme": rewardList[i].children[1].value
+        }
+        rewardText.push(append);
+    }
+    outputData["reward"] = rewardText;
+
+    jsonString = JSON.stringify(outputData);
+    download(jsonString, fileName, "text/plain");
+}
+
+function loadFile() {
+    uploadedFile = document.getElementById("load_element").files[0];
+
+    // If uploadedFile is undefined, this will return out of the function.
+    if (!uploadedFile) {
+        return;
+    }
+
+    fileText = uploadedFile.text();
+    fileText.then((value) => {
+        jsonText = value;
+        
+        output = document.getElementById("loadFileOutput");
+
+        try {
+            loadedData = JSON.parse(jsonText);
+        } catch (error) {
+            output.innerHTML = "The loaded file does not appear to be a saved project.";
+            console.log("Error parsing JSON: ", error);
+            return;
+        }
+
+        // Set the name
+        nameElement = document.getElementById("name");
+        try {
+            nameElement.value = loadedData["name"];
+        } catch {
+            // Clear the existing data.
+            nameElement.value = "";
+        }
+        
+        // Set the title
+        titleDiv = document.getElementById("titlediv");
+        try {
+            titleDiv.children[1].value = loadedData["title"];
+        } catch {
+            // Clear the existing data.
+            titleDiv.children[1].value = "";
+        }
+
+        // Set the parts.
+        try {
+            dataPartsList = loadedData["parts"];
+        } catch {
+            // Clear the existing data.
+            dataPartsList = [""]; // Add a blank part for it to put in.
+        }
+        
+        partsList = document.getElementById("parts_list");
+
+        for (var i = 0; i < dataPartsList.length; i++) {
+            // If the number of existing parts is less than the number of parts in the loaded data, add a new part.
+            if (partsList.children.length < dataPartsList.length) {
+                addPart();
+            }
+
+            modifyPart = partsList.children[i];
+            modifyPart.children[1].value = dataPartsList[i];
+        }
+
+        // Set the costs, similarly done to the parts.
+        try {
+            dataCostsList = loadedData["cost"];
+        } catch {
+            // Clear the existing data.
+            dataCostsList = [{"item": "", "scheme": ""}]; // Add a blank cost for it to put in.
+        }
+
+        costList = document.getElementById("cost_list");
+
+        for (var i = 0; i < dataCostsList.length; i++) {
+            // If the number of existing costs is less than the number of costs in the loaded data, add a new cost.
+            if (costList.children.length < dataCostsList.length) {
+                addCost();
+            }
+
+            modifyCost = costList.children[i];
+            modifyCost.children[0].value = dataCostsList[i]["item"];
+            modifyCost.children[1].value = dataCostsList[i]["scheme"];
+        }
+        
+        // Set the reward, which is the same as the cost.
+        try {
+            dataRewardsList = loadedData["reward"];
+        } catch {
+            // Clear the existing data.
+            dataRewardsList = [{"item": "", "scheme": ""}]; // Add a blank reward for it to put in.
+        }
+        rewardList = document.getElementById("reward_list");
+
+        for (var i = 0; i < dataRewardsList.length; i++) {
+            // If the number of existing rewards is less than the number of rewards in the loaded data, add a new reward.
+            if (rewardList.children.length < dataRewardsList.length) {
+                addReward();
+            }
+
+            modifyReward = rewardList.children[i];
+            modifyReward.children[0].value = dataRewardsList[i]["item"];
+            modifyReward.children[1].value = dataRewardsList[i]["scheme"];
+        }
+
+        // Set the completion text.
+        completionDiv = document.getElementById("completiondiv");
+        try {
+            completionDiv.children[1].value = loadedData["completion"];
+        } catch {
+            // Clear the existing data.
+            completionDiv.children[1].value = "";
+        }
+
+        // Lastly, check if the number of existing parts, costs, and rewards is greater than how many there should be.
+        // And remove any extras.
+
+        // Parts
+        while (partsList.children.length > dataPartsList.length) {
+            removePart();
+        }
+        while (costList.children.length > dataCostsList.length) {
+            removeCost();
+        }
+        while (rewardList.children.length > dataRewardsList.length) {
+            removeReward();
+        }
+
+        // Update the output.
+        output.innerHTML = "Project loaded successfully.";
+    });
 }
 </script>
