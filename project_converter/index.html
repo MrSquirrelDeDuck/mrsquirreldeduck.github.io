@@ -817,4 +817,17 @@ function findStats() {
         ".<br>Average part combination: ".concat(average.toFixed(2).toLocaleString(), " character", (average == 1 ? "" : "s"), "."))
     );
 }
+
+// https://stackoverflow.com/questions/10311341/confirmation-before-closing-of-tab-browser/
+window.onbeforeunload = function (e) {
+    e = e || window.event;
+
+    // For IE and Firefox prior to version 4
+    if (e) {
+        e.returnValue = 'Sure?';
+    }
+
+    // For Safari
+    return 'Sure?';
+};
 </script>
