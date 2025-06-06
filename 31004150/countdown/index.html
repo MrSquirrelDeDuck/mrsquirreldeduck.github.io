@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-    <style>
-        p {
-            /* font-family: agency fb; */
-            font-family: Arial;
-            font-size: 500%;
-            text-align: center;
-        }
-    </style>
+    <head>
+        <style>
+            p {
+                /* font-family: agency fb; */
+                font-family: Arial;
+                font-size: 500%;
+                text-align: center;
+            }
+        </style>
+        <title>Countdown</title>
+    </head>
     <body>
         <p><span id="turn">Turn 00</span><br><span id="countdown">undefined</span></p>
     </body>
@@ -49,9 +52,13 @@
         } else {
             seconds = seconds.toString();
         }
+
+        newTurn = "Turn ".concat(turn);
+        newCountdown = hours.concat(":", minutes, ":", seconds);
         
-        document.getElementById("turn").innerHTML = "Turn ".concat(turn);
-        document.getElementById("countdown").innerHTML = hours.concat(":", minutes, ":", seconds);
+        document.getElementById("turn").innerHTML = newTurn;
+        document.getElementById("countdown").innerHTML = newCountdown;
+        document.title = newTurn + ": " + newCountdown;
     }
     var x = setInterval(get, 50);
     get()
