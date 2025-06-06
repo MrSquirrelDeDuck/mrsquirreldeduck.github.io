@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html>
-    <title>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>
         Countdown.
     </title>
     <style>
@@ -11,18 +11,18 @@
             text-align: center;
         }
     </style>
-    <body>
-        <p><span id="turn">Turn 00</span><br><span id="countdown">undefined</span></p>
-    </body>
-</html>
+    <style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head><body>
+        <p><span id="turn">Turn 372</span><br><span id="countdown">23:46:58</span></p>
+    
+
 <script>
     // Update the count down every 20th of a second
     function get() {
         var now = Date.now() / 1000 - (3600 * 4) + (3600 * 12);
 
-        turn = Math.floor(now / 86400) - 19874;
+        turn = Math.floor(now / 86400) - 20246;
 
-        if (turn < 10) {
+        if (turn < 10 && !(turn <= 0)) {
             turn = "0".concat(turn.toString());
         } else {
             turn = turn.toString();
@@ -59,3 +59,4 @@
     var x = setInterval(get, 50);
     get()
 </script>
+</body></html>
