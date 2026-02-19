@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Worchle</title>
+        <style>
+            * {
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                color: white;
+            }
+            
+            button {
+                background-color: #818384;
+                width: 45px;
+                height: 45px;
+                text-align: center;
+                font-size: large;
+            }
+
+            body {
+                background-color: #222222;
+            }
+
+            #bounding {
+                justify-content: center;
+                width: 100%;
+            }
+
+            #container {
+                width: 50%;
+                position: relative;
+                margin: 0 auto;
+                text-align: center;
+            }
+            
+            #main-content {
+                padding-top: 10%;
+                align-items: center;
+                position: relative;
+            }
+            
+            #keyboard-container {
+                padding-top: 5%;
+                align-items: center;
+                position: relative;
+            }
+            
+            .row {
+                justify-content: center;
+                margin-top: 10px;
+                position: relative;
+                left: 0;
+                display: flex;
+            }
+
+            .letter-box {
+                width: 50px;
+                height: 50px;
+                outline: 2px gray solid;
+                margin-left: 10px;
+                float: left;
+                font-size: xx-large;
+            }
+
+            .non-letter {
+                width: 75px;
+            }
+
+            .keyboard-row {
+                margin-top: 5px;
+            }
+        </style>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <div id="bounding">
+            <div id="container">
+                <div id="header">
+                    <h1>Worchle</h1>
+                    <p><i>It's like Wordle, but the answer is<br>
+                    always a member of the Virginia Tech<br>
+                    polymer chemistry faculty.</i></p>
+                </div>
+                <div id="main-content">
+                    <div id="letter-container">
+                        <div id="row1" class="row">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                        <div id="row2" class="row">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                        <div id="row3" class="row">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                        <div id="row4" class="row">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                        <div id="row5" class="row">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                        <div id="row6" class="row">
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                            <div class="letter-box"></div>
+                        </div>
+                    </div>
+                    <div id="keyboard-container">
+                        <div>
+                            <button id="letter-q" onclick="addLetter('q')">Q</button>
+                            <button id="letter-w" onclick="addLetter('w')">W</button>
+                            <button id="letter-e" onclick="addLetter('e')">E</button>
+                            <button id="letter-r" onclick="addLetter('r')">R</button>
+                            <button id="letter-t" onclick="addLetter('t')">T</button>
+                            <button id="letter-y" onclick="addLetter('y')">Y</button>
+                            <button id="letter-u" onclick="addLetter('u')">U</button>
+                            <button id="letter-i" onclick="addLetter('i')">I</button>
+                            <button id="letter-o" onclick="addLetter('o')">O</button>
+                            <button id="letter-p" onclick="addLetter('p')">P</button>
+                        </div>
+                        <div class="keyboard-row">
+                            <button id="letter-a" onclick="addLetter('a')">A</button>
+                            <button id="letter-s" onclick="addLetter('s')">S</button>
+                            <button id="letter-d" onclick="addLetter('d')">D</button>
+                            <button id="letter-f" onclick="addLetter('f')">F</button>
+                            <button id="letter-g" onclick="addLetter('g')">G</button>
+                            <button id="letter-h" onclick="addLetter('h')">H</button>
+                            <button id="letter-j" onclick="addLetter('j')">J</button>
+                            <button id="letter-k" onclick="addLetter('k')">K</button>
+                            <button id="letter-l" onclick="addLetter('l')">L</button>
+                        </div>
+                        <div class="keyboard-row">
+                            <button class="non-letter" onclick="makeGuess()">Enter</button>
+                            <button id="letter-z" onclick="addLetter('z')">Z</button>
+                            <button id="letter-x" onclick="addLetter('x')">X</button>
+                            <button id="letter-c" onclick="addLetter('c')">C</button>
+                            <button id="letter-v" onclick="addLetter('v')">V</button>
+                            <button id="letter-b" onclick="addLetter('b')">B</button>
+                            <button id="letter-n" onclick="addLetter('n')">N</button>
+                            <button id="letter-m" onclick="addLetter('m')">M</button>
+                            <button class="non-letter" onclick="removeLetter()">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
